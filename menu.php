@@ -1,7 +1,8 @@
 <?php
+session_start();
 include("connect.php");
 include("header.html");
-//$products = json_decode($_COOKIE['basket'], true);
+//$products = json_decode($_SESSION['basket'], true);
 $products = array(1,1,1,1);
 ?>
 <html>
