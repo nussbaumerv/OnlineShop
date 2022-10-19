@@ -1,6 +1,7 @@
 <?php
 include("connect.php");
-$products = json_decode($_COOKIE['basket'], true);
+//$products = json_decode($_COOKIE['basket'], true);
+$products = array(1);
 ?>
 <html>
 
