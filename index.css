@@ -1,0 +1,22 @@
+*{
+    font-family: "Ubuntu", sans-serif;
+    color: rgb(240, 58, 115);
+}
+
+body{
+    background-color: white;
+}
+
+.custnav li{
+    margin-right: 55px;
+    font-size: 28px;
+}
+
+.headtitle{
+    font-size: 150px;
+    color: rgb(72, 212, 255);
+}
+
+.active {
+    color:     color: rgb(240, 58, 115);
+}
