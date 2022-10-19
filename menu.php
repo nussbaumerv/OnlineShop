@@ -2,7 +2,7 @@
 include("connect.php");
 include("header.html");
 //$products = json_decode($_COOKIE['basket'], true);
-$products = array('1');
+$products = array(1,1,1,1);
 ?>
 <html>
 
@@ -78,10 +78,16 @@ $products = array('1');
             transform: scale(1.12);
 
         }
-        p{
-            text-align: left;
+        .productImg{
+            width:50px;
+            float:left;
+        }
+        .containerProducts{
+            padding:0px;
             color:white;
-            font-size:160px;
+        }
+        .name{
+            font-size:25px;
         }
     </style>
 </head>
@@ -91,6 +97,7 @@ $products = array('1');
 
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
             <?php
+            $totalPrice = 0;
             foreach ($products as $product) {
                 $sql = "SELECT * FROM products WHERE id = '$product'";
                 $result = mysqli_query($connect, $sql);
@@ -99,9 +106,17 @@ $products = array('1');
                 }
 
                 $row = mysqli_fetch_assoc($result);
-                echo "<p>".$row['name']."</p>";
+                echo "<div class='containerProducts'>
+                <img  class='productImg' src='img/".$row['id'].".png'>
+                <span class='name'>".$row['name']."</span><br>
+                <span class='price'>".$row['price']." CHF</span><br>
+                <div><br>";
+                $totalPrice += $row['price'];
             }
+            echo "<hr> Total: ".$totalPrice." CHF";
             ?>
+
+
         </div>
 
     <div class="zo">
