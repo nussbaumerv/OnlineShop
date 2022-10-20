@@ -64,14 +64,14 @@ $products = json_decode($_SESSION['basket'], true);
         <img src="henrimonster.png" width="100%" />
         <p class="prodname">Henri: 20$</p>
         <button class="buybutton">
-          <a class="isA" href="addBasket.php?pid=2&dest=Shop.php">Add to cart</a>
+          <a class="isA" href="addBasket.php?pid=3&dest=Shop.php">Add to cart</a>
         </button>
       </div>
       <div class="col-4">
         <img src="valentinmonster.png" width="100%">
         <p class="prodname">Valentin: 20$</p>
         <button class="buybutton1">
-          <a class="isA" href="addBasket.php?pid=3&dest=Shop.php">Add to cart</a>
+          <a class="isA" href="addBasket.php?pid=2&dest=Shop.php">Add to cart</a>
         </button>
       </div>
       <div class="col-4">
