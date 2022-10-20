@@ -81,6 +81,7 @@ img{
     transition: 0.5s;
     padding-top: 60px;
     text-align: right;
+    z-index: 3000;
 }
 
 .sidenav a {
@@ -162,5 +163,9 @@ img{
 
 #top_menu {
     height: 90%;
-    bakcgro
+}
+
+a{
+    color:black;
+    text-decoration: none;
 }
