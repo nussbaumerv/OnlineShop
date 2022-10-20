@@ -34,10 +34,10 @@ $products = json_decode($_SESSION['basket'], true);
                   <a class="nav-link" aria-current="" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="About-us.html">About me</a>
+                  <a class="nav-link" href="About-us.php">About me</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="Kontakt.html">Kontakt</a>
+                  <a class="nav-link" href="Kontakt.php">Kontakt</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link active" href="Shop.php">Shop</a>
