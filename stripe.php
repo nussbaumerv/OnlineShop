@@ -9,7 +9,7 @@ $result = mysqli_query($connect, $sql);
 
 $row = mysqli_fetch_assoc($result);
 
-$get_key = $id * $row['Validator'] * $id * 34;
+$get_key = $id * $row['validator'] * $id * 34;
 
 
 $products = [

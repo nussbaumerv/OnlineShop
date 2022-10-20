@@ -3,38 +3,37 @@ include("connect.php");
 include("PHPMailer/mail.php");
 session_start();
 
-$id = $_SESSION['id'];
+$id = $_SESSION['uid'];
 
-$id_url = $id * 69;
+$user_id_url = $id * 69;
 
 $Validator = $_GET['key'] / $id / $id / 34;
 
-$sql = "SELECT * FROM kunden_demo WHERE id = '$id'";
+$sql = "SELECT * FROM customers WHERE id = '$id'";
 $result = mysqli_query($connect, $sql);
-
 $row = mysqli_fetch_assoc($result);
 
-if ($Validator == $row['Validator']) {
-    $sql_place = "SELECT * FROM plätze_demo WHERE usr_id = '$id'";
+if ($Validator == $row['validator']) {
+   /* $sql_place = "SELECT * FROM  WHERE usr_id = '$id'";
     $result_place = mysqli_query($connect, $sql_place);
     
     while ($row2 = mysqli_fetch_assoc($result_place)) {
         $sql_q = "UPDATE plätze_demo SET ordeble = '0' WHERE usr_id = '$id'";
         $pupdate = mysqli_query($connect, $sql_q);
-    }
+    }*/
     
 
     $subject = 'Bestellbestätigung';
     $message = '
                     Sehr geehrte Damen und Herren <br>
                     Vielen Dank für Ihre Bestellung. <br>
-                    Sie haben erfolgreich Ihre Plätze für ' . $row['Price'] . ' Reserviert und Bezahlt.
+                    Sie haben erfolgreich Ihre Plätze für ' . $row['price'] . ' Reserviert und Bezahlt.
                     Sie können Ihre Tickets <a href="https://sommernachtstraum.me/ticket.php?uid=' . $user_id_url . '">hier</a> einsehen oder <a href="https://sommernachtstraum.me/pdf.php?uid=' . $user_id_url . '">hier</a> als PDF downloaden. <br>
                     ';
     $to = $row['email'];
     send_mail($to, $subject, $message);
 
-    $sql_update = "UPDATE kunden_demo SET Paid = 'Ja' WHERE id = '$id'";
+    $sql_update = "UPDATE customers SET paid = 'Yes' WHERE id = '$id'";
     $result_update = mysqli_query($connect, $sql_update);
 }
 ?>
@@ -59,7 +58,6 @@ if ($Validator == $row['Validator']) {
         }
 
         titel {
-            font-family: 'Playfair Display', serif;
             font-size: 50px;
         }
 

@@ -107,8 +107,8 @@ $Payment_method = $_POST['payment_method'];
 $Validator = rand();
 
 
-$sql_kunden = "INSERT INTO customers (prename, name, adress, post_code, village, email, phone, paid, products, date, payment_method, validator) VALUES 
-('$Vorname', '$Nachname', '$Adresse', '$Postleitzahl', '$Ort', '$Email', '$Telefon', '$paid', '$products_json', '$date', '$Payment_method', '$Validator')";
+$sql_kunden = "INSERT INTO customers (prename, name, adress, post_code, village, email, phone, paid, price, products, date, payment_method, validator) VALUES 
+('$Vorname', '$Nachname', '$Adresse', '$Postleitzahl', '$Ort', '$Email', '$Telefon', '$paid', '$totalPrice', '$products_json', '$date', '$Payment_method', '$Validator')";
 $result = mysqli_query($connect, $sql_kunden);
 
 
