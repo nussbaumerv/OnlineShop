@@ -1,7 +1,14 @@
 <?php
 include("connect.php");
-include("PHPMailer/mail.php");
 session_start();
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
 
 $id = $_SESSION['id'];
 
@@ -23,16 +30,34 @@ if ($Validator == $row['Validator']) {
         $pupdate = mysqli_query($connect, $sql_q);
     }
     
+    $user_id_url = $row['id'] * 69;
+    $mail = new PHPMailer(true);
 
-    $subject = 'Bestellbestätigung';
-    $message = '
+    $mail->isSMTP();
+    $mail->Host       = 'smtp.hostinger.com';
+    $mail->SMTPAuth   = true;
+    $mail->CharSet    = 'UTF-8';
+    $mail->Username   = 'contact@sommernachtstraum.me';
+    $mail->Password   = 'Winternachtstraum07!';
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+    $mail->Port       = 465;
+
+    $mail->setFrom('contact@sommernachtstraum.me', 'sommernachtstraum.me');
+    $mail->addAddress($row['Email']);
+
+    $mail->isHTML(true);
+    $mail->Subject = 'Bestellbestätigung';
+    $mail->Body    = '
                     Sehr geehrte Damen und Herren <br>
                     Vielen Dank für Ihre Bestellung. <br>
                     Sie haben erfolgreich Ihre Plätze für ' . $row['Price'] . ' Reserviert und Bezahlt.
                     Sie können Ihre Tickets <a href="https://sommernachtstraum.me/ticket.php?uid=' . $user_id_url . '">hier</a> einsehen oder <a href="https://sommernachtstraum.me/pdf.php?uid=' . $user_id_url . '">hier</a> als PDF downloaden. <br>
+                    Herzliche Grüsse, <br>
+                    die 3. Sek Uetikon<br><br>
+                    3.Sek Uetikon | sommernachtstraum.me | contact@sommernachtstraum.me<br><br>
+                    &copy;Valentin Nussbaumer 2022
                     ';
-    $to = $row['email'];
-    send_mail($to, $subject, $message);
+    $mail->send();
 
     $sql_update = "UPDATE kunden_demo SET Paid = 'Ja' WHERE id = '$id'";
     $result_update = mysqli_query($connect, $sql_update);

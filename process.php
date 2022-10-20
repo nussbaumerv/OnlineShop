@@ -75,6 +75,15 @@
 session_start();
 include("connect.php");
 
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
+use PHPMailer\PHPMailer\Exception;
+
+
+require 'PHPMailer/src/Exception.php';
+require 'PHPMailer/src/PHPMailer.php';
+require 'PHPMailer/src/SMTP.php';
+
 $products_json = $_SESSION['basket'];
 $products = json_decode($products_json, true);
 $totalPrice = 0;
@@ -127,9 +136,23 @@ if (!$result) {
         if ($Payment_method == "bill_email") {
             $user_id_url = $user_id * 69;
 
-           
-            $subject = 'Bestellbestätigung';
-            $body = '
+            $mail = new PHPMailer(true);
+
+            $mail->isSMTP();
+            $mail->Host       = 'smtp.hostinger.com';
+            $mail->SMTPAuth   = true;
+            $mail->CharSet    = 'UTF-8';
+            $mail->Username   = 'contact@sommernachtstraum.me';
+            $mail->Password   = 'Winternachtstraum07!';
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+            $mail->Port       = 465;
+
+            $mail->setFrom('contact@sommernachtstraum.me', 'sommernachtstraum.me');
+            $mail->addAddress($Email);
+
+            $mail->isHTML(true);
+            $mail->Subject = 'Bestellbestätigung';
+            $mail->Body = '
                     Sehr geehrte Damen und Herren <br>
                     Vielen Dank für Ihre Bestellung. <br>
                     Sie haben erfolgreich Ihre Plätze für ' . $totalPrice . ' reserviert.
@@ -146,7 +169,7 @@ if (!$result) {
                     Konto lautet auf: The Monster Company<br><br>
                     3.Sek Uetikon | sommernachtstraum.me | contact@sommernachtstraum.me<br><br>
                     &copy;Valentin Nussbaumer 2022';
-
+            $mail->send();
 
             $sql_update = "UPDATE kunden_demo SET Payment_method = 'Rechnung per Email', Plätze = '$sitze', Price = '$price', Auffuerung = '$aufführung' WHERE id = '$user_id'";
             $result_update = mysqli_query($connect, $sql_update);
