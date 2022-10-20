@@ -2,16 +2,16 @@
 session_start();
 include("connect.php");
 include("header.html");
-//$products = json_decode($_SESSION['basket'], true);
-$products = array(1,1,1,1);
+$products = json_decode($_SESSION['basket'], true);
 ?>
 <html>
 
 <head>
     <style>
-        *{
-            font-family:arial;
+        * {
+            font-family: arial;
         }
+
         .sidenav {
             height: 100%;
             width: 0;
@@ -79,16 +79,33 @@ $products = array(1,1,1,1);
             transform: scale(1.12);
 
         }
-        .productImg{
-            width:50px;
-            float:left;
+
+        .productImg {
+            width: 50px;
+            float: left;
         }
-        .containerProducts{
-            padding:0px;
-            color:white;
+
+        .containerProducts {
+            padding: 0px;
+            color: white;
         }
-        .name{
-            font-size:25px;
+
+        .name {
+            font-size: 25px;
+        }
+
+        #bottom_menu {
+            margin: 0;
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        #top_menu {
+            height: 90%;
+            bakcgro
         }
     </style>
 </head>
@@ -97,6 +114,7 @@ $products = array(1,1,1,1);
     <div id="mySidenav" class="sidenav">
 
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div id="top_menu">
             <?php
             $totalPrice = 0;
             foreach ($products as $product) {
@@ -108,17 +126,23 @@ $products = array(1,1,1,1);
 
                 $row = mysqli_fetch_assoc($result);
                 echo "<div class='containerProducts'>
-                <img  class='productImg' src='img/".$row['id'].".png'>
-                <span class='name'>".$row['name']."</span><br>
-                <span class='price'>".$row['price']." CHF</span><br>
+                <img  class='productImg' src='img/" . $row['id'] . ".png'>
+                <span class='name'>" . $row['name'] . "</span><br>
+                <span class='price'>" . $row['price'] . " CHF</span><br>
                 <div><br>";
                 $totalPrice += $row['price'];
             }
-            echo "<hr> Total: ".$totalPrice." CHF";
+            echo "<hr><br>Total: " . $totalPrice . " CHF"; 
             ?>
-
+        </div>
+        <div id="bottom_menu">
+        
+            <a class="checkOut" href="checkout.php">Checkout</a>
 
         </div>
+
+
+    </div>
 
     <div class="zo">
         <span class="navib" onclick="openNav()"> &#9776; </span>
