@@ -14,8 +14,8 @@ $get_key = $id * $row['Validator'] * $id * 34;
 
 $products = [
   [
-    'price' => 'price_1KiHP4HEg6xGmK2rhcFf5bSE',
-    'quantity' => $kids,
+    'price' => 'price_1LutEYHEg6xGmK2rM9vPe24b',
+    'quantity' => $_SESSION['amount'],
 
   ],
 ];
@@ -26,7 +26,7 @@ require 'vendor/autoload.php';
 
 header('Content-Type: application/json');
 
-$YOUR_DOMAIN = 'http://localhost/onlineShop/';
+$YOUR_DOMAIN = 'http://localhost/OnlineShop/';
 
 $checkout_session = \Stripe\Checkout\Session::create([
   'customer_email' => $_POST['email'],
