@@ -74,6 +74,7 @@
 <?php
 session_start();
 include("connect.php");
+include("PHPMailer/mail.php");
 
 $products_json = $_SESSION['basket'];
 $products = json_decode($products_json, true);
@@ -115,10 +116,8 @@ $result = mysqli_query($connect, $sql_kunden);
 if (!$result) {
     echo "<script> alert('Something went wrong'); </script>";
 } else {
-    $sql_select = "SELECT * FROM customers WHERE Validator = '$Validator'";
-    $result_select = mysqli_query($connect, $sql_select);
-    $row = mysqli_fetch_assoc($result_select);
-    $user_id = $row['id'];
+
+    $user_id = mysqli_insert_id($connect);
     $_SESSION['uid'] = $user_id;
 
     if ($Payment_method == "card") {
@@ -128,31 +127,29 @@ if (!$result) {
         if ($Payment_method == "bill_email") {
             $user_id_url = $user_id * 69;
 
-           
-            $subject = 'Bestellbestätigung';
-            $body = '
-                    Sehr geehrte Damen und Herren <br>
-                    Vielen Dank für Ihre Bestellung. <br>
-                    Sie haben erfolgreich Ihre Plätze für ' . $totalPrice . ' reserviert.
-                    Sie können Ihre Tickets <a href="https://sommernachtstraum.me/ticket.php?uid=' . $user_id_url . '">hier</a> einsehen oder <a href="https://sommernachtstraum.me/pdf.php?uid=' . $user_id_url . '">hier</a> als PDF downloaden. <br>
-                    Wir bitten Sie ' . $totalPrice . ' vor dem 6. Mai 2022 an das unten aufgelistete Konto zu überweisen <br>
-                    Bitte laden Sie die Überweisungsbestätigung ebenfals vor dem 6 Mai 2022 als PDF <a href="https://sommernachtstraum.me/upload/?usr=' . $user_id . '">hier</a> hoch.<br>
-                    Herzliche Grüsse, <br>
-                    die 3. Sek Uetikon<br><br>
-                    Betrag: ' . $totalPrice . ' <br>
-                    IBAN-Nr: <br>
-                    Konto-Nr: <br>
-                    Zahlungsmitteilung: The Best Monster in Town<br>
-                    Konto lautet auf: The Monster Company<br><br>
-                    3.Sek Uetikon | sommernachtstraum.me | contact@sommernachtstraum.me<br><br>
-                    &copy;Valentin Nussbaumer 2022';
+            $subject = 'Order confirmation';
+            $message = '
+                            Hi, <br>
+                            Thank you for your order. <br>
+                            Your order of ' . $totalPrice . 'CHF will be sent to your adress in the next few days.
+                            <a href="https://sommernachtstraum.me/pdf.php?uid=' . $user_id_url . '">Here</a> you can download your bill as a PDF<br>
+                            Please Pay your order in the next 30. Days and sent the Moneyto the Bankaccount below.
+                        
+                            <br><br><br>
+                            Betrag: ' . $totalPrice . ' <br>
+                            IBAN-Nr: <br>
+                            Konto-Nr: <br>
+                            Zahlungsmitteilung: The Best Monster in Town<br>
+                            Konto lautet auf: The Monster Company<br><br>
+                            ';
+            $to = $Email;
+            send_mail($to, $subject, $message);
 
-
-            $sql_update = "UPDATE kunden_demo SET Payment_method = 'Rechnung per Email', Plätze = '$sitze', Price = '$price', Auffuerung = '$aufführung' WHERE id = '$user_id'";
+            $sql_update = "UPDATE customers SET payment_method = 'Bill email' WHERE id = '$user_id'";
             $result_update = mysqli_query($connect, $sql_update);
 
             if ($result_update) {
-                header("Location: thanks.php?uid=" . $user_id . "");
+                header("Location: thanks.php");
             }
         }
     }

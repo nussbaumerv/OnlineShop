@@ -149,8 +149,9 @@ foreach ($products as $product) {
 <br><br> <br>
 <h1 id="price"><span id="money"><?php echo $totalPrice; ?></span> CHF</h1>
 <br><br>
-<h2>Informationen</h2><input name="vorname" type="text" placeholder="Vorname" required><br><br>
+<h2>Informationen</h2>
 <form id="formi" action="process.php" method="post">
+<input name="vorname" type="text" placeholder="Vorname" required><br><br>
 <input name="name" type="text" placeholder="Nachname" required><br><br> <br>
 <input name="adresse" type="text" placeholder="Adresse" required><br><br>
 <input name="postleitzahl" type="text" placeholder="Postleitzahl" required><br><br>

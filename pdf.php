@@ -6,88 +6,34 @@ if ($_GET['uid']) {
 
 	
 } else {
-	if ($_SESSION['id']) {
-		$user_id = $_SESSION['id'];
+	if ($_SESSION['uid']) {
+		$user_id = $_SESSION['uid'];
 	} else {
-		header("Location: https://sommernachtstraum.me/");
+		header("Location: index.html");
 	}
 }
 
-$sql_user = "SELECT * FROM kunden_demo WHERE id = '$user_id'";
+$sql_user = "SELECT * FROM customers WHERE id = '$user_id'";
 $result_user = mysqli_query($connect, $sql_user);
 $fetch_user = mysqli_fetch_assoc($result_user);
 
 
-$aufführung = $fetch_user['Auffuerung'];
+$payment_method = $fetch_user['payment_method'];
+$paid = $fetch_user['paid'];
 
-$payment_method = $fetch_user['Payment_method'];
-$paid = $fetch_user['Paid'];
-
-if ($paid == "Nein") {
-	$paid = '<b color="red">Unbezahlt</b> (' . $fetch_user['Datum'] . ')';
+if ($paid == "No") {
+	$paid = '<b color="red">Unpaid</b>';
 } else {
-    if($paid == "Ja"){
-	$paid = '<b color="green">Bezahlt</b>';
+    if($paid == "Yes"){
+	$paid = '<b color="green">Paid</b>';
     }
     else{
-        $paid = '<b color="orange">Unbekannt</b> (' . $fetch_user['Datum'] . ')';
+        $paid = '<b color="orange">Unknown</b>';
         
     }
 }
 
-$sql_place = "SELECT * FROM plätze_demo WHERE usr_id = '$user_id'";
-$result_place = mysqli_query($connect, $sql_place);
-
-$plätze = array();
-
-while ($row = mysqli_fetch_assoc($result_place)) {
-	$location = $row['Location'];
-	$locationArray = explode('/', $location);
-	$aufführung = $row['aufführung'];
-
-	if ($aufführung == 1) {
-		$date = "12 Mai";
-		$time = "18:30";
-		$first_check = 1;
-	}
-	if ($aufführung == 2) {
-		$date = "13 Mai";
-		$time = "18:30";
-		$second_check = 1;
-	}
-
-	if ($row['kinder'] == 1) {
-		$price = 20;
-	} else {
-		$price = 25;
-	}
-
-	if ($locationArray[1] == 1) {
-		$table = "A";
-	}
-	if ($locationArray[1] == 2) {
-		$table = "B";
-	}
-	if ($locationArray[1] == 3) {
-		$table = "C";
-	}
-	if ($locationArray[1] == 4) {
-		$table = "D";
-	}
-	if ($locationArray[1] == 5) {
-		$table = "E";
-	}
-	if ($locationArray[1] == 6) {
-		$table = "F";
-	}
-	if ($locationArray[1] == 7) {
-		$table = "G";
-	}
-	if ($locationArray[1] == 8) {
-		$table = "H";
-	}
-	array_push($plätze, array($table, $locationArray[0], $price, $date, $time));
-}
+$products = json_decode($fetch_user['products'], true);
 
 require_once('TCPDF/TCPDF-main/examples/tcpdf_include.php');
 
@@ -97,8 +43,8 @@ $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8',
 // set document information
 $pdf->SetCreator(PDF_CREATOR);
 $pdf->SetAuthor('Valentin Nussbaumer');
-$pdf->SetTitle('Ticket_' . $user_id . '');
-$pdf->SetSubject('Ticket_' . $user_id . '');
+$pdf->SetTitle('Bill_' . $user_id . '');
+$pdf->SetSubject('Bill_' . $user_id . '');
 // set default header data
 $pdf->setFooterData(array(0,64,0), array(0,64,128));
 
@@ -146,20 +92,20 @@ $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'colo
 
 // Set some content to print
 $header = '
-<b style="font-size: 22px;">Ein Sommernachtstraum</b>
-<a style="color:gray; font-size: 13px;" href="mailto: contact@sommernachtstraum.me">contact@@sommernachtstraum.me</a>
-<a style="color:gray; font-size: 13px;" href="https://sommernachtstraum.me">sommernachtstraum.me</a>';
+<b style="font-size: 22px;">VHD Shop</b>
+<a style="color:gray; font-size: 13px;" href="mailto: vali7799@icloud.com">contact@VHD.shop</a>
+<a style="color:gray; font-size: 13px;" href="https://VHD.shop">VHD.shop</a>';
 
-if ($first_check == 1 && $second_check == 1) {
-	$date_time = "";
-} else {
-	$date_time = '<br><br><b>Datum: ' . $date . '
-Zeit: ' . $time . '</b><br>';
-}
+
 
 $footer = "
-<b>Zahlungsmethode:</b> $payment_method
-$paid";
+<b>Payment method:</b> $payment_method
+$paid
+<br>
+".$fetch_user['prename']." ".$fetch_user['name']."<br>"
+.$fetch_user['adress']."<br>"
+.$fetch_user['post_code']." ".$fetch_user['village']."<br>"
+.$fetch_user['email']." | ".$fetch_user['phone']."<br>";
 
 
 $pdfName = 'Ticket_' . $user_id . '.pdf';
@@ -170,46 +116,47 @@ $html = '
 	<tr>
 		<td>' . nl2br(trim($header)) . '</td>
 	   <td style="text-align: right">
-	   Riedsteegsaal<br>
-	   Bergstrasse 111<br>
-	    8707 Uetikon am See<br> 
+	   VHD Office<br>
+	   VHD Street<br>
+	   9999 VHD City<br> 
 		</td>
 	</tr>
 
 	<tr>
 		 <td style="font-size:20px; font-weight: bold;">
 <br><br>
-Ihre Tickets
+Your Order
 		 </td>
 	</tr>
 	<tr>
-		<td colspan="2">' . nl2br(trim($date_time)) . '</td>
+		<td colspan="2">'.$fetch_user["date"].'</td>
 	</tr>
 
 </table>
 
 <table cellpadding="5" cellspacing="0" style="width: 100%;" border="0">
 	<tr style="background-color: #cccccc; padding:5px;">
-		<td style="padding:5px;"><b>TISCH</b></td>
-		<td style="padding:5px;"><b>PLATZ</b></td>
-		<td style="padding:5px;"><b>DATUM</b></td>
-		<td style="padding:5px;"><b>ZEIT</b></td>
-		<td style="text-align:right"><b>Preis</b></td>
+		<td style="padding:5px;"><b>Product Name</b></td>
+		<td style="text-align:right"><b>Price</b></td>
 	</tr>';
 
 
 $gesamtpreis = 0;
 
-foreach ($plätze as $posten) {
-	$gesamtpreis += $posten[2];
-	$html .= '<tr>
+foreach ($products as $product) {
+	$sql = "SELECT * FROM products WHERE id = '$product'";
+	$result = mysqli_query($connect, $sql);
+	if (!$result) {
+		echo "<script> alert('Daten konnten nicht geladen Werden.'); </script>";
+	}
 
-				<td>' . $posten[0] . '</td>		
-				<td>' . $posten[1] . '</td>	
-				<td>' . $posten[3] . '</td>	
-				<td>' . $posten[4] . '</td>	
-                <td style="text-align:right">CHF ' . $posten[2] . '</td>
-              </tr>';
+	$row = mysqli_fetch_assoc($result);
+	$html .= '<tr>
+				<td>' . $row['name'] . '</td>		
+                <td style="text-align:right">CHF ' . $row['price'] . '</td>
+    </tr>';
+	$gesamtpreis += $row['price'];
+	
 }
 $html .= "</table>";
 
@@ -221,8 +168,9 @@ $html .= '
 
 $html .= '
             <tr>
-                <td colspan="3"><b>Gesamtsumme: </b></td>
+                <td colspan="3"><b>Total: </b></td>
                 <td style="text-align: right;"><b>CHF ' . number_format($gesamtpreis, 2, ',', '') . '</b></td>
+
             </tr>			
         </table>
 <br><br><br>';
