@@ -111,8 +111,21 @@ $free_places = false;
             text-align: center;
             font-size: 100px;
         }
-        table{
-            border: 1px solid black;
+
+        img {
+            border-radius: 30px;
+            margin-bottom: 20px;
+            margin-right: 20px;
+        }
+
+        .productName {
+            font-family: Monstarize;
+        }
+
+        .comprice {
+            font-family: Ubuntu;
+            text-align: center;
+            font-size: 40px;
         }
     </style>
 </head>
@@ -148,6 +161,10 @@ $free_places = false;
     ?>
 
 </table>
+
+
+
+
 <style>
     .inplabels {
         display: inline-block;
@@ -165,14 +182,32 @@ $free_places = false;
     .paymeth {
         color: rgb(72, 212, 255);
     }
+
+    #submit {
+        background-color: white;
+        width: 200px;
+        height: 40px;
+        border-radius: 30px;
+        color: rgb(72, 212, 255);
+    }
+    #submit:hover{
+        background-color: gray;
+    }
 </style>
 
 <div class="container">
+    <hr>
+    <div class="comprice">
+        <a style="font-size: 30px;">Your total:</a>
+        <?php echo $totalPrice; ?>
+        <a style="font-size: 30px;">CHF</a>
+    </div>
+
 
     <br><br> <br>
-    <h1 id="price"><span id="money"><?php echo $totalPrice; ?></span> CHF</h1>
+
     <br><br>
-    <h2>Informationen</h2>
+    <h2 style="margin-bottom: 120px;font-size: 50px;color:rgb(72, 212, 255);">Information</h2>
     <div class="infromationen">
         <form action="process.php" method="post">
             <div class="row">
