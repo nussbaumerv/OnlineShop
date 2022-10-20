@@ -43,7 +43,7 @@ $products = json_decode($_SESSION['basket'], true);
                   <a class="nav-link active" href="Shop.php">Shop</a>
                 </li>
               </ul>
-              <span onclick="openNav()" class="material-symbols-outlined" style="margin-left: 455px;">
+              <span onclick="openNav()" class="material-symbols-outlined addBasket" style="margin-left: 455px;">
                 shopping_cart
               </span>
 
