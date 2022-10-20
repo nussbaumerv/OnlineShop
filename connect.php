@@ -1,8 +1,8 @@
 <?php 
 $host_name = 'localhost';
-$user_name = 'root';
-$password = '';
-$database = 'onlineshop';
+$user_name = 'u701930346_THEATER';
+$password = 'SirO7799';
+$database = 'u701930346_theater';
 
 $connect = mysqli_connect($host_name, $user_name, $password, $database);
 mysqli_query($connect, "SET NAMES 'utf8'");
