@@ -14,6 +14,7 @@ $free_places = false;
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/83828188?v=4" type="img/vnd.microsoft.icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
     <title>Your Basket</title>
@@ -35,20 +36,23 @@ $free_places = false;
         input[type="tel"],
         input[type="email"],
         input[type="number"] {
-            padding: 10 20px;
-            width: 60vw;
-            background-color: rgb(255, 255, 255);
-            border: solid;
-            border-color: #c72f2f;
-            font-size: 16px;
+            display: block;
+            position: relative;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            -ms-flex-align: stretch;
+            align-items: stretch;
+            width: 100%;
+            padding-bottom: 20px;
         }
 
         input[type="text"]:focus,
         input[type="tel"]:focus,
         input[type="email"]:focus,
         input[type="number"]:focus {
-            outline: none;
-            background-color: #e0e0e0;
+
         }
 
         #submit_button {
@@ -145,22 +149,29 @@ foreach ($products as $product) {
 }
 
 ?>
+
 </table>
-<br><br> <br>
-<h1 id="price"><span id="money"><?php echo $totalPrice; ?></span> CHF</h1>
-<br><br>
-<h2>Informationen</h2>
-<form id="formi" action="process.php" method="post">
-<input name="vorname" type="text" placeholder="Vorname" required><br><br>
-<input name="name" type="text" placeholder="Nachname" required><br><br> <br>
-<input name="adresse" type="text" placeholder="Adresse" required><br><br>
-<input name="postleitzahl" type="text" placeholder="Postleitzahl" required><br><br>
-<input name="ort" type="text" remove placeholder="Ort" required><br><br> <br>
+<style>
 
-<input name="email" type="email" placeholder="Email" required><br><br>
-<input name="telefon" type="tel" placeholder="Telefon" required><br><br>
+</style>
 
-<h2>Zahlungsmethoden</h2>
+<div class="container">
+
+    <br><br> <br>
+    <h1 id="price"><span id="money"><?php echo $totalPrice; ?></span> CHF</h1>
+    <br><br>
+    <h2>Informationen</h2>
+    <form id="formi" action="process.php" method="post">
+    <input name="vorname" type="text" placeholder="Vorname" required><br><br>
+    <input name="name" type="text" placeholder="Nachname" required><br><br> <br>
+    <input name="adresse" type="text" placeholder="Adresse" required><br><br>
+    <input name="postleitzahl" type="text" placeholder="Postleitzahl" required><br><br>
+    <input name="ort" type="text" remove placeholder="Ort" required><br><br> <br>
+
+    <input name="email" type="email" placeholder="Email" required><br><br>
+    <input name="telefon" type="tel" placeholder="Telefon" required><br><br>
+    </div>
+    <h2>Zahlungsmethoden</h2>
 <div id="zahlungsmethoden">
     <label class="container">
         <input type="radio" name="payment_method" value="card" checked>
@@ -180,3 +191,4 @@ foreach ($products as $product) {
 <br><br><br><br>
 <?php include("footer.php"); ?>
 <br><br><br>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
