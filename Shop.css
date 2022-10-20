@@ -76,27 +76,31 @@ img{
     z-index: 1;
     top: 0;
     right: 0;
-    background-color: #111;
+    background-color: rgb(255, 255, 255);
     overflow-x: hidden;
     transition: 0.5s;
-    padding-top: 60px;
+    padding-top: 200px;
     text-align: right;
+    z-index: 3000;
 }
 
 .sidenav a {
+    margin-top: 68px;
+    width: 50px;
+    height: 50px;
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
     transition: transform .2s;
-    color: #818181;
+    color: rgb(240, 58, 115);
     display: block;
     transition: 0.3s;
 }
 
 .sidenav a:hover {
-    color: #f1f1f1;
+    color: rgb(192, 32, 83);
     transition: transform .2s;
-    transition: color: .2s;
+    transition: .2s;
     transform: scale(1.03);
 }
 
@@ -116,35 +120,20 @@ img{
     font-size: 40px;
 }
 
-.zo {
-    transition: margin-left .5s;
-    color: black;
-    text-align: right;
-    position: fixed;
-    transition: transform .2s;
-    width: 40px;
-    height: 50px;
-    right: 10px;
-    transition: color: .2s;
-    top: 0;
-}
-
-.zo:hover {
-    color: grey;
-    transition: transform .2s;
-    transition: color: .2s;
-    transform: scale(1.12);
-
-}
 
 .productImg {
-    width: 50px;
+    box-shadow:0 1px 3px 3px rgba(0,0,0,.6);
+    margin-left: 25px;
+    margin-top: 2px;
+    width: 70px;
     float: left;
+  
 }
 
 .containerProducts {
     padding: 0px;
-    color: white;
+    color: rgb(72, 212, 255);
+    text-align: center;
 }
 
 .name {
@@ -162,5 +151,18 @@ img{
 
 #top_menu {
     height: 90%;
-    bakcgro
+}
+
+a{
+    color:rgb(72, 212, 255);
+    text-decoration: none;
+}
+a:hover{
+    color:grey;
+}
+.addBasket{
+    cursor: pointer;
+}
+.addBasket:hover{
+    color:grey;
 }

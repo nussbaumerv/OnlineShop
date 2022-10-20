@@ -31,19 +31,19 @@ $products = json_decode($_SESSION['basket'], true);
             <div class="collapse navbar-collapse custnav" id="navbarNav">
               <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a class="nav-link" aria-current="" href="index.html">Home</a>
+                  <a class="nav-link" aria-current="" href="index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="About-us.html">About me</a>
+                  <a class="nav-link" href="About-us.php">About me</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="Kontakt.html">Kontakt</a>
+                  <a class="nav-link" href="Kontakt.php">Kontakt</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active" href="Shop.html">Shop</a>
+                  <a class="nav-link active" href="Shop.php">Shop</a>
                 </li>
               </ul>
-              <span onclick="openNav()" class="material-symbols-outlined" style="margin-left: 455px;">
+              <span onclick="openNav()" class="material-symbols-outlined addBasket" style="margin-left: 455px;">
                 shopping_cart
               </span>
 
@@ -64,21 +64,21 @@ $products = json_decode($_SESSION['basket'], true);
         <img src="henrimonster.png" width="100%" />
         <p class="prodname">Henri: 20$</p>
         <button class="buybutton">
-          <a href="addBasket.php?pid=1&dest=Shop.html">Add to cart</a>
+          <a href="addBasket.php?pid=1&dest=Shop.php">Add to cart</a>
         </button>
       </div>
       <div class="col-4">
         <img src="valentinmonster.png" width="100%">
         <p class="prodname">Valentin: 20$</p>
         <button class="buybutton1">
-          <a href="addBasket.php?pid=1&dest=Shop.html">Add to cart</a>
+          <a href="addBasket.php?pid=1&dest=Shop.php">Add to cart</a>
         </button>
       </div>
       <div class="col-4">
         <img src="Dominicmonster.png" width="100%" />
         <p class="prodname">Dominic: 20$</p>
         <button class="buybutton2">
-          <a href="addBasket.php?pid=1&dest=Shop.html">Add to cart</a>
+          <a href="addBasket.php?pid=1&dest=Shop.php">Add to cart</a>
         </button>
       </div>
     </div>

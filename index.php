@@ -21,16 +21,16 @@
                       <div class="collapse navbar-collapse custnav sticky" id="navbarNav">
                         <ul class="navbar-nav">
                           <li class="nav-item">
-                            <a class="nav-link   active" aria-current="" href="index.html">Home</a>
+                            <a class="nav-link   active" aria-current="" href="index.php">Home</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="About-us.html">About me</a>
+                            <a class="nav-link" href="About-us.php">About me</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="Kontakt.html">Kontakt</a>
+                            <a class="nav-link" href="Kontakt.php">Kontakt</a>
                           </li>
                           <li class="nav-item">
-                            <a class="nav-link" href="Shop.html">Shop</a>
+                            <a class="nav-link" href="Shop.php">Shop</a>
                           </li>
                         </ul>
                       </div>

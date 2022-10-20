@@ -6,4 +6,4 @@ if (isset($_POST['Email'])) {
     $message = $_POST['Email']. "contacted us. <br>He wrote:". $_POST['Message'];
     send_mail($to, $subject, $message);
 }
-echo "Thanks for sending feedback";
+header("Location: thankYou.html");
