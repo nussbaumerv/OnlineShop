@@ -20,7 +20,6 @@ body{
     color: rgb(72, 212, 255);
 }
 
-
 .navbar{
     width: 100%;
     background-color:white;
@@ -42,7 +41,6 @@ a{
     margin-bottom: 25px;
 }
 
-
 @font-face {
     font-family: Monstarize;
     src: url("Monstarize-qZ09l.ttf");
@@ -56,4 +54,47 @@ a{
 }
 .shoplink:hover {
     color: rgb(37, 117, 141);
+}
+@media (max-width: 768px) {
+    .container{
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .navbar{
+        height: 200px;
+    }
+    .headtitle{
+        font-size: 50px;
+        text-align: center;
+    }
+    .sticky1{
+        margin: auto;
+        margin-left: 30%;
+        display: block;
+    }
+    .container-fluid{
+        position: relative;
+        top: -120px;
+    }
+    .navbar-toggler{
+        margin-top: 3%;
+        margin-right: 70%;
+        
+    }
+    .navbar-nav{
+        margin-top: .1%;
+        margin-right: 74%;
+        border: 2px solid black;
+        background-color: rgb(255, 255, 255);
+        padding-left: 20px;
+        border-radius: 0px 20px 20px 20px;
+        
+    }
+    .headsubtitle{
+        text-align: center;
+    }
+    .shoplink{
+        margin: auto;
+        display: block;
+    }
 }
