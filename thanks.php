@@ -6,7 +6,6 @@ session_start();
 $id = $_SESSION['uid'];
 
 $user_id_url = $id * 69;
-
 $Validator = $_GET['key'] / $id / $id / 34;
 
 $sql = "SELECT * FROM customers WHERE id = '$id'";
@@ -23,12 +22,12 @@ if ($Validator == $row['validator']) {
     }*/
     
 
-    $subject = 'Bestellbestätigung';
+    $subject = 'Order confirmation';
     $message = '
-                    Sehr geehrte Damen und Herren <br>
-                    Vielen Dank für Ihre Bestellung. <br>
-                    Sie haben erfolgreich Ihre Plätze für ' . $row['price'] . ' Reserviert und Bezahlt.
-                    Sie können Ihre Tickets <a href="https://sommernachtstraum.me/ticket.php?uid=' . $user_id_url . '">hier</a> einsehen oder <a href="https://sommernachtstraum.me/pdf.php?uid=' . $user_id_url . '">hier</a> als PDF downloaden. <br>
+                    Hi, <br>
+                    Thank you for your order. <br>
+                    Your order of ' . $row['price'] . 'CHF will be sent to your adress in the next few days.
+                    <a href="https://sommernachtstraum.me/order.php?uid=' . $user_id_url . '">Here</a> you can see your bill or you can also download it  <a href="https://sommernachtstraum.me/pdf.php?uid=' . $user_id_url . '">here</a> as a PDF<br>
                     ';
     $to = $row['email'];
     send_mail($to, $subject, $message);
@@ -87,7 +86,6 @@ if ($Validator == $row['validator']) {
     <div id="container">
         <div id="text">
             <titel>Vielen Dank für Ihre Bestellung</titel><br>
-            <a href="ticket.php?uid=<?php echo $id_url; ?>">Zu Ihren Tickets</a>
         </div>
     </div>
 
