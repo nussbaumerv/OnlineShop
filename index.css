@@ -14,6 +14,7 @@ body{
 }
 
 .headtitle{
+    font-family: Monstarize;
     text-align: left;
     margin-top: 250px;
     font-size: 150px;
@@ -34,4 +35,17 @@ body{
 
 a{
     text-align: center;
+}
+
+.headsubtitle{
+    font-family: "Monstarize";
+    margin-top: 15px;
+    text-align: left;
+    font-size: 50px;
+}
+
+
+@font-face {
+    font-family: Monstarize;
+    src: url("Monstarize-qZ09l.ttf");
 }
