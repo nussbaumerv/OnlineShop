@@ -137,7 +137,7 @@ $free_places = false;
     <td><img  class='productImg' src='img/" . $row['id'] . ".png'></tb>
     <td><span class='productName'>" . $row['name'] . "</span><br>
     <span class='productPrice'>" . $row['price'] . " CHF</span>
-    <a href='dropBasket?pid=".$row['id']."&dest=checkout.php'>Remove from Basket</a>
+    <a href='dropBasket.php?pid=".$row['id']."&dest=checkout.php'>Remove from Basket</a>
     </td>
     </tr>";
         $totalPrice += $row['price'];
