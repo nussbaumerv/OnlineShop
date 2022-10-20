@@ -1,7 +1,6 @@
 <?php
 session_start();
 include("connect.php");
-include("header.html");
 $products = json_decode($_SESSION['basket'], true);
 
 $free_places = false;
@@ -53,7 +52,7 @@ $free_places = false;
             font-size: 2rem;
             font-weight: 400;
             line-height: 1.5;
-            color: rgb(72, 212, 255);
+            color: black;
             background-color: white;
             background-clip: padding-box;
             border: 1px solid #ced4da;
@@ -61,13 +60,6 @@ $free_places = false;
             border-radius: 0.25rem;
             transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
         }
-
-        input[type="text"]:focus,
-        input[type="tel"]:focus,
-        input[type="email"]:focus,
-        input[type="number"]:focus {}
-
-
 
         titel {
             font-size: 50px;
@@ -90,7 +82,7 @@ $free_places = false;
         }
 
 
-  
+
         textarea {
             padding: 10 20px;
             width: 60vw;
@@ -114,11 +106,21 @@ $free_places = false;
         .productImg {
             width: 200px;
         }
+
+        .title {
+            text-align: center;
+            font-size: 100px;
+        }
+        table{
+            border: 1px solid black;
+        }
     </style>
 </head>
 <br>
-<titel>VHD Shop</titel><br>
-<suptitel>Your Basket</suptitel>
+<div class="container" style="font-family: Monstarize;text-align:center;color:rgb(72, 212, 255);">
+    <titel class="title">VHD Shop</titel><br>
+    <suptitel>Your Basket:</suptitel>
+</div>
 <br><br>
 
 <table>
@@ -137,7 +139,7 @@ $free_places = false;
     <td><img  class='productImg' src='img/" . $row['id'] . ".png'></tb>
     <td><span class='productName'>" . $row['name'] . "</span><br>
     <span class='productPrice'>" . $row['price'] . " CHF</span>
-    <a href='dropBasket.php?pid=".$row['id']."&dest=checkout.php'>Remove from Basket</a>
+    <a href='dropBasket.php?pid=" . $row['id'] . "&dest=checkout.php'>Remove from Basket</a>
     </td>
     </tr>";
         $totalPrice += $row['price'];
@@ -158,6 +160,10 @@ $free_places = false;
         font-family: Monstarize;
 
         src: url("Monstarize-qZ09l.ttf");
+    }
+
+    .paymeth {
+        color: rgb(72, 212, 255);
     }
 </style>
 
@@ -220,7 +226,7 @@ $free_places = false;
 
 
 
-    <h2>Payment methods</h2>
+    <h2 class="paymeth">Payment methods</h2>
     <div id="zahlungsmethoden">
         <label class="container">
             <input type="radio" name="payment_method" value="card" checked>
