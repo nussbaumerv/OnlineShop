@@ -132,7 +132,7 @@ if (!$result) {
                             Hi, <br>
                             Thank you for your order. <br>
                             Your order of ' . $totalPrice . 'CHF will be sent to your adress in the next few days.
-                            <a href="https://sommernachtstraum.me/pdf.php?uid=' . $user_id_url . '">Here</a> you can download your bill as a PDF<br>
+                            <a style="color:white;" href="https://sommernachtstraum.me/pdf.php?uid=' . $user_id_url . '">Here</a> you can download your bill as a PDF<br>
                             Please Pay your order in the next 30. Days and sent the Moneyto the Bankaccount below.
                         
                             <br><br><br>
