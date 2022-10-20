@@ -64,27 +64,27 @@ $products = json_decode($_SESSION['basket'], true);
         <img src="henrimonster.png" width="100%" />
         <p class="prodname">Henri: 20$</p>
         <button class="buybutton">
-          <a href="addBasket.php?pid=1&dest=Shop.php">Add to cart</a>
+          <a class="isA" href="addBasket.php?pid=1&dest=Shop.php">Add to cart</a>
         </button>
       </div>
       <div class="col-4">
         <img src="valentinmonster.png" width="100%">
         <p class="prodname">Valentin: 20$</p>
         <button class="buybutton1">
-          <a href="addBasket.php?pid=1&dest=Shop.php">Add to cart</a>
+          <a class="isA" href="addBasket.php?pid=1&dest=Shop.php">Add to cart</a>
         </button>
       </div>
       <div class="col-4">
         <img src="Dominicmonster.png" width="100%" />
         <p class="prodname">Dominic: 20$</p>
         <button class="buybutton2">
-          <a href="addBasket.php?pid=1&dest=Shop.php">Add to cart</a>
+          <a class="isA" href="addBasket.php?pid=1&dest=Shop.php">Add to cart</a>
         </button>
       </div>
     </div>
     <div id="mySidenav" class="sidenav">
 
-      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="javascript:void(0)" class="closebtn isA" onclick="closeNav()">&times;</a>
       <div id="top_menu">
         <?php
         $totalPrice = 0;
@@ -108,8 +108,8 @@ $products = json_decode($_SESSION['basket'], true);
       </div>
       <div id="bottom_menu">
 
-        <a class="checkOut" href="checkout.php">Checkout</a>
-
+       <span><a class="notA" href="checkout.php" id="checkOut">Checkout</a></span>
+       
       </div>
 
 
@@ -119,8 +119,8 @@ $products = json_decode($_SESSION['basket'], true);
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   <script>
     function openNav() {
-      document.getElementById("mySidenav").style.width = "300px";
-      document.getElementById("main").style.marginLeft = "300px";
+      document.getElementById("mySidenav").style.width = "400px";
+      document.getElementById("main").style.marginLeft = "400px";
     }
 
     function closeNav() {

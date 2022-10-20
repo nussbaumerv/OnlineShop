@@ -82,9 +82,10 @@ img{
     padding-top: 200px;
     text-align: right;
     z-index: 3000;
+    box-shadow:0 .7px 2px 2px rgba(0, 0, 0, 0.092);
 }
 
-.sidenav a {
+.sidenav .isA {
     margin-top: 68px;
     width: 50px;
     height: 50px;
@@ -97,13 +98,12 @@ img{
     transition: 0.3s;
 }
 
-.sidenav a:hover {
+.sidenav .isA:hover {
     color: rgb(192, 32, 83);
     transition: transform .2s;
     transition: .2s;
     transform: scale(1.03);
 }
-
 .sidenav .closebtn {
     position: absolute;
     top: 0;
@@ -124,7 +124,7 @@ img{
 .productImg {
     box-shadow:0 1px 3px 3px rgba(0,0,0,.6);
     margin-left: 25px;
-    margin-top: 2px;
+    margin-top: 1px;
     width: 70px;
     float: left;
   
@@ -135,17 +135,27 @@ img{
     color: rgb(72, 212, 255);
     text-align: center;
 }
-
+.notA{
+    position: absolute;
+    margin-left: 45px;
+    border-radius: 20px;
+    padding: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+    background-color: rgb(240, 58, 115);
+    color: white;
+    
+}
 .name {
     font-size: 25px;
 }
-
 #bottom_menu {
+
+    width: 200px;
+    height: 65px;
     margin: 0;
-    position: absolute;
-    bottom: 5%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin-top: 400px;
+    position: relative;
     text-align: center;
 }
 
@@ -159,6 +169,11 @@ a{
 }
 a:hover{
     color:grey;
+}
+.notA:hover{
+    
+    color:rgb(206, 206, 206);
+    background-color: rgb(192, 32, 83);
 }
 .addBasket{
     cursor: pointer;
