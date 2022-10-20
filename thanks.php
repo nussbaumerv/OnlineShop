@@ -86,7 +86,7 @@ if ($Validator == $row['validator']) {
     <div id="container">
         <div id="text">
             <titel>Thanks for your Order</titel><br>
-            <a href="pdf.php?uid=<?php echo $user_id_url; ?>">Zu Ihren Tickets</a>
+            <a href="pdf.php?uid=<?php echo $user_id_url; ?>">Download your bill</a>
         </div>
     </div>
 

@@ -2,7 +2,7 @@
 session_start();
 include("connect.php");
 if ($_GET['uid']) {
-	$user_id = $_GET['uid'];
+	$user_id = $_GET['uid'] / 69;
 
 	
 } else {
