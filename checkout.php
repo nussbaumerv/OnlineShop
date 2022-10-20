@@ -15,8 +15,8 @@ $free_places = false;
     <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/83828188?v=4" type="img/vnd.microsoft.icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
     <title>Your Basket</title>
     <style>
         body {
@@ -46,14 +46,26 @@ $free_places = false;
             align-items: stretch;
             width: 100%;
             padding-bottom: 20px;
+            display: block;
+            width: 100%;
+            height: calc(1.5em + 0.75rem + 2px);
+            padding: 0.375rem 0.75rem;
+            font-size: 2rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            outline: none;
+            border-radius: 0.25rem;
+            transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
         }
 
         input[type="text"]:focus,
         input[type="tel"]:focus,
         input[type="email"]:focus,
-        input[type="number"]:focus {
-
-        }
+        input[type="number"]:focus {}
 
         #submit_button {
             padding: 5 10px;
@@ -71,12 +83,13 @@ $free_places = false;
             transition: opacity .2s;
         }
 
-       
+
 
         titel {
             font-size: 50px;
         }
-        suptitel{
+
+        suptitel {
             font-size: 25px;
         }
 
@@ -113,14 +126,14 @@ $free_places = false;
             outline: none;
             background-color: #e0e0e0;
         }
-        .productName{
-            font-size:25px;
+
+        .productName {
+            font-size: 25px;
         }
-        .productImg{
-            width:200px;
+
+        .productImg {
+            width: 200px;
         }
- 
-        
     </style>
 </head>
 <br>
@@ -129,26 +142,26 @@ $free_places = false;
 <br><br>
 
 <table>
-<?php
-$totalPrice = 0;
-foreach ($products as $product) {
-    $sql = "SELECT * FROM products WHERE id = '$product'";
-    $result = mysqli_query($connect, $sql);
-    if (!$result) {
-        echo "<script> alert('Daten konnten nicht geladen Werden.'); </script>";
-    }
+    <?php
+    $totalPrice = 0;
+    foreach ($products as $product) {
+        $sql = "SELECT * FROM products WHERE id = '$product'";
+        $result = mysqli_query($connect, $sql);
+        if (!$result) {
+            echo "<script> alert('Daten konnten nicht geladen Werden.'); </script>";
+        }
 
-    $row = mysqli_fetch_assoc($result);
-    echo "
+        $row = mysqli_fetch_assoc($result);
+        echo "
     <tr>
     <td><img  class='productImg' src='img/" . $row['id'] . ".png'></tb>
     <td><span class='productName'>" . $row['name'] . "</span><br>
     <span class='productPrice'>" . $row['price'] . " CHF</span></td>
     </tr>";
-    $totalPrice += $row['price'];
-}
+        $totalPrice += $row['price'];
+    }
 
-?>
+    ?>
 
 </table>
 <style>
@@ -162,16 +175,16 @@ foreach ($products as $product) {
     <br><br>
     <h2>Informationen</h2>
     <form id="formi" action="process.php" method="post">
-    <input name="vorname" type="text" placeholder="Vorname" required><br><br>
-    <input name="name" type="text" placeholder="Nachname" required><br><br> <br>
-    <input name="adresse" type="text" placeholder="Adresse" required><br><br>
-    <input name="postleitzahl" type="text" placeholder="Postleitzahl" required><br><br>
-    <input name="ort" type="text" remove placeholder="Ort" required><br><br> <br>
+        <input name="vorname" type="text" placeholder="Vorname" required><br><br>
+        <input name="name" type="text" placeholder="Nachname" required><br><br> <br>
+        <input name="adresse" type="text" placeholder="Adresse" required><br><br>
+        <input name="postleitzahl" type="text" placeholder="Postleitzahl" required><br><br>
+        <input name="ort" type="text" remove placeholder="Ort" required><br><br> <br>
 
-    <input name="email" type="email" placeholder="Email" required><br><br>
-    <input name="telefon" type="tel" placeholder="Telefon" required><br><br>
-    </div>
-    <h2>Zahlungsmethoden</h2>
+        <input name="email" type="email" placeholder="Email" required><br><br>
+        <input name="telefon" type="tel" placeholder="Telefon" required><br><br>
+</div>
+<h2>Zahlungsmethoden</h2>
 <div id="zahlungsmethoden">
     <label class="container">
         <input type="radio" name="payment_method" value="card" checked>
