@@ -27,7 +27,7 @@ if ($Validator == $row['validator']) {
                     Hi, <br>
                     Thank you for your order. <br>
                     Your order of ' . $row['price'] . 'CHF will be sent to your adress in the next few days.
-                    <a href="https://sommernachtstraum.me/order.php?uid=' . $user_id_url . '">Here</a> you can see your bill or you can also download it  <a href="https://sommernachtstraum.me/pdf.php?uid=' . $user_id_url . '">here</a> as a PDF<br>
+                    <a href="https://sommernachtstraum.me/pdf.php?uid=' . $user_id_url . '">Here</a> you can download your bill as a PDF<br>
                     ';
     $to = $row['email'];
     send_mail($to, $subject, $message);
@@ -85,7 +85,8 @@ if ($Validator == $row['validator']) {
 <body>
     <div id="container">
         <div id="text">
-            <titel>Vielen Dank für Ihre Bestellung</titel><br>
+            <titel>Thanks for your Order</titel><br>
+            <a href="pdf.php?uid=<?php echo $user_id_url; ?>">Zu Ihren Tickets</a>
         </div>
     </div>
 

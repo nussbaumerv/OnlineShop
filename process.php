@@ -74,6 +74,7 @@
 <?php
 session_start();
 include("connect.php");
+include("PHPMailer/mail.php");
 
 $products_json = $_SESSION['basket'];
 $products = json_decode($products_json, true);
@@ -130,17 +131,18 @@ if (!$result) {
             $message = '
                             Hi, <br>
                             Thank you for your order. <br>
-                            Your order of ' . $row['price'] . 'CHF will be sent to your adress in the next few days.
-                            <a href="https://sommernachtstraum.me/order.php?uid=' . $user_id_url . '">Here</a> you can see your bill or you can also download it  <a href="https://sommernachtstraum.me/pdf.php?uid=' . $user_id_url . '">here</a> as a PDF<br>
+                            Your order of ' . $totalPrice . 'CHF will be sent to your adress in the next few days.
+                            <a href="https://sommernachtstraum.me/pdf.php?uid=' . $user_id_url . '">Here</a> you can download your bill as a PDF<br>
                             Please Pay your order in the next 30. Days and sent the Moneyto the Bankaccount below.
                         
-                            Betrag: ' . $row['price'] . ' <br>
+                            <br><br><br>
+                            Betrag: ' . $totalPrice . ' <br>
                             IBAN-Nr: <br>
                             Konto-Nr: <br>
                             Zahlungsmitteilung: The Best Monster in Town<br>
                             Konto lautet auf: The Monster Company<br><br>
-                            3.Sek Uetikon | sommernachtstraum.me | contact@sommernachtstraum.me<br><br>';
-            $to = $row['email'];
+                            ';
+            $to = $Email;
             send_mail($to, $subject, $message);
 
             $sql_update = "UPDATE customers SET payment_method = 'Bill email' WHERE id = '$user_id'";
