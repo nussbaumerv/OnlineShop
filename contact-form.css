@@ -1,3 +1,7 @@
+
+
+
+
 @font-face {
     font-family: Monstarize;
     src: url("Monstarize-qZ09l.ttf");
@@ -5,10 +9,10 @@
 
 #fcf-form {
     display:block;
-    margin-top: 20%;
+    margin-top: 5%;
 }
 .fcf-h3{
-    font-size: 150px;
+    font-size: 100px;
     font-family: Monstarize;
     color: rgb(240, 58, 115);
     padding-bottom: 100px;
@@ -16,7 +20,8 @@
 
 .fcf-body {
     margin: 0;
-    font-size: 2rem;
+    margin-top: 20%;
+    font-size: 1.5rem;
     font-weight: 400;
     line-height: 1.5;
     color: #212529;
@@ -24,8 +29,8 @@
     background-color: #fff;
     padding: 30px;
     padding-bottom: 10px;
-    border: 2px solid #000000;
-    border-radius: 0.25rem;
+    border: 4px solid #000000;
+    border-radius: 20px;
     max-width: 100%;
 }
 
@@ -79,7 +84,7 @@ label.fcf-label {
     display: inline-block;
     margin-bottom: 0.5rem;
     color: rgb(72, 212, 255);
-    font-size: 40px;
+    font-size: 30px;
 }
 
 .fcf-credit {
@@ -174,4 +179,8 @@ label.fcf-label {
 
 input[type="submit"].fcf-btn-block, input[type="reset"].fcf-btn-block, input[type="button"].fcf-btn-block {
     width: 100%;
+
 }
+
+
+
