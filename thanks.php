@@ -25,10 +25,10 @@ if ($Validator == $row['validator']) {
 
     $subject = 'Bestellbestätigung';
     $message = '
-                    Sehr geehrte Damen und Herren <br>
-                    Vielen Dank für Ihre Bestellung. <br>
-                    Sie haben erfolgreich Ihre Plätze für ' . $row['price'] . ' Reserviert und Bezahlt.
-                    Sie können Ihre Tickets <a href="https://sommernachtstraum.me/ticket.php?uid=' . $user_id_url . '">hier</a> einsehen oder <a href="https://sommernachtstraum.me/pdf.php?uid=' . $user_id_url . '">hier</a> als PDF downloaden. <br>
+                    Hi, <br>
+                    Thanks for your order. <br>
+                    Your order of ' . $row['price'] . 'CHF will be sent to your adress in the next few days.
+                    If you want  <a href="https://sommernachtstraum.me/ticket.php?uid=' . $user_id_url . '">hier</a> einsehen oder <a href="https://sommernachtstraum.me/pdf.php?uid=' . $user_id_url . '">hier</a> als PDF downloaden. <br>
                     ';
     $to = $row['email'];
     send_mail($to, $subject, $message);
@@ -87,7 +87,6 @@ if ($Validator == $row['validator']) {
     <div id="container">
         <div id="text">
             <titel>Vielen Dank für Ihre Bestellung</titel><br>
-            <a href="ticket.php?uid=<?php echo $id_url; ?>">Zu Ihren Tickets</a>
         </div>
     </div>
 
