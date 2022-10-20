@@ -1,6 +1,5 @@
 *{
     font-family: "Ubuntu", sans-serif;
-    color: rgb(240, 58, 115);
 }
 
 body{
@@ -21,9 +20,6 @@ body{
     color: rgb(72, 212, 255);
 }
 
-.active {
-    color: rgb(240, 58, 115);
-}
 
 .navbar{
     width: 100%;
@@ -42,10 +38,22 @@ a{
     margin-top: 15px;
     text-align: left;
     font-size: 50px;
+    color: rgb(240, 58, 115);
+    margin-bottom: 25px;
 }
 
 
 @font-face {
     font-family: Monstarize;
     src: url("Monstarize-qZ09l.ttf");
+}
+
+.shoplink {
+    font-size: 20px;
+    font-family: Monstarize;
+    color: rgb(72, 212, 255);
+    text-decoration: none;
+}
+.shoplink:hover {
+    color: rgb(37, 117, 141);
 }
