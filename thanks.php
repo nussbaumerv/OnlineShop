@@ -13,14 +13,17 @@ $result = mysqli_query($connect, $sql);
 $row = mysqli_fetch_assoc($result);
 
 if ($Validator == $row['validator']) {
-   /* $sql_place = "SELECT * FROM  WHERE usr_id = '$id'";
-    $result_place = mysqli_query($connect, $sql_place);
-    
-    while ($row2 = mysqli_fetch_assoc($result_place)) {
-        $sql_q = "UPDATE plätze_demo SET ordeble = '0' WHERE usr_id = '$id'";
-        $pupdate = mysqli_query($connect, $sql_q);
-    }*/
-    
+    $products = json_decode($_SESSION['basket'], true);
+
+    foreach ($products as $product) {
+        $sql = "SELECT * FROM products WHERE id = '$product'";
+        $result = mysqli_query($connect, $sql);
+        $row = mysqli_fetch_assoc($result);
+        $available = $row['available'] - 1;
+
+        $sql_update = "UPDATE products SET available = '$available' WHERE id = '$id'";
+        $result_update = mysqli_query($connect, $sql_update);
+    }
 
     $subject = 'Order confirmation';
     $message = '
