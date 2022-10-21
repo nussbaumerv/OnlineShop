@@ -147,12 +147,7 @@
                 </a>
             </div>
         </div>
-
-
     </div>
-
-
     <?php include("basket.php"); ?>
-
 </body>
 </html>
