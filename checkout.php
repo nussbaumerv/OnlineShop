@@ -123,7 +123,7 @@ $free_places = false;
         }
 
         .comprice {
-            font-family: Ubuntu;
+            font-family: Monstarize;
             text-align: center;
             font-size: 40px;
         }
@@ -184,31 +184,36 @@ $free_places = false;
     }
 
     #submit {
-        background-color: white;
-        width: 200px;
-        height: 40px;
+        font-family: Monstarize;
+        font-size: 35px;
+        border: none;
+        background-color: rgb(240, 58, 115);
+        width: 300px;
+        height: 50px;
         border-radius: 30px;
         color: rgb(72, 212, 255);
     }
     #submit:hover{
-        background-color: gray;
+        background-color: rgb(200, 58, 115);
     }
+
+
 </style>
 
 <div class="container">
     <hr>
     <div class="comprice">
-        <a style="font-size: 30px;">Your total:</a>
+        <a style="font-size: 30px;font-family: Ubuntu;">Your total:</a>
         <?php echo $totalPrice; ?>
-        <a style="font-size: 30px;">CHF</a>
+        <a style="font-size: 30px;font-family: Ubuntu;">CHF</a>
     </div>
 
 
     <br><br> <br>
 
     <br><br>
-    <h2 style="margin-bottom: 120px;font-size: 50px;color:rgb(72, 212, 255);">Information</h2>
-    <div class="infromationen">
+    <h2 style="margin-bottom: 100px;margin-top: 100px;;font-size: 95px;color:rgb(200, 58, 115);font-family: Monstarize">Information</h2>
+    <div class="informationen">
         <form action="process.php" method="post">
             <div class="row">
                 <div class="col-12">
@@ -264,13 +269,13 @@ $free_places = false;
     <h2 class="paymeth">Payment methods</h2>
     <div id="zahlungsmethoden">
         <label class="container">
-            <input type="radio" name="payment_method" value="card" checked>
-            <div class="label">credit card</div>
+            <input type="radio" name="payment_method" style="margin-top: 20px;" value="card" checked>
+            <div class="label">Credit card</div>
         </label><br>
 
         <label class="container" id="bill_email">
-            <input type="radio" name="payment_method" value="bill_email">
-            <div id="email" class="label">bill per email</div>
+            <input type="radio" style="margin-top: 20px;" name="payment_method" value="bill_email">
+            <div id="email" class="label">Bill per email</div>
     </div><br>
     <br>
 
