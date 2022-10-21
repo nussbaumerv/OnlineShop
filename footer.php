@@ -44,7 +44,6 @@
     <a href="Shop.php">Shop</a> |
     <a href="imprint.php">Imprint</a> |
     <a href="https://github.com/nussbaumerv/OnlineShop">Github</a><br><br>
-    <?php echo $_SERVER["SCRIPT_FILENAME"];?>
 
     &copy; VHD Shop <?php echo date("Y"); ?> - All rights reserved
   </div>

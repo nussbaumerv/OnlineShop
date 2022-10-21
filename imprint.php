@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="shortcut icon" href="https://shop.valentin-nussbaumer.com/img/1.png" type="img/vnd.microsoft.icon" />
-    <title>Document</title>
+    <title>Imprint</title>
 </head>
 
 <body>
@@ -69,7 +69,7 @@
         <div class="row" style="margin-top: 20px;">
             <div class="col-12">
                 <a>
-                    Hinterbergstrasse 45
+                    VHD Street
                 </a>
             </div>
         </div>
@@ -93,7 +93,7 @@
         <div class="row" style="margin-top: 30px;">
             <div class="col-12">
                 <a>
-                    E-mail: VHD.info@gmail.com
+                    E-mail: <a style="color:black" href="mailto: mail@shop.valentin-nussbaumer.com/">mail@shop.valentin-nussbaumer.com</a>
                 </a>
             </div>
         </div>
@@ -102,7 +102,7 @@
         <div class="row" style="margin-top: 10px;">
             <div class="col-12">
                 <a>
-                    Telefon: +41 44 434 88 30
+                    Phone: +41 44 434 88 30
                 </a>
             </div>
         </div>
@@ -117,11 +117,24 @@
         <div class="row" style="margin-top: 30px;">
             <div class="col-12">
                 <a>
-                    Firmennummer: CH-040.3.968.550-5
+                    Open Source Libarys we've used: <br>
+                    <a style="color:black" href="https://github.com/PHPMailer/PHPMailer">PHPMailer</a><br>
+                    <a style="color:black" href="https://github.com/tecnickcom/TCPDF">TCPDF</a>
+
                 </a>
             </div>
         </div>
-        
+        <div class="row" style="margin-top: 30px;">
+            <div class="col-12">
+                <a>
+                    Developers: <br>
+                    Backend: <a style="color:black" href="https://valentin-nussbaumer.com">Valentin Nussbaumer</a><br>
+                    Frontend: <a style="color:black" href="https://github.com/Henrikochh">Henri Koch</a> & <a style="color:black" href="https://github.com/doeme07">Dominic Heule</a>
+
+                </a>
+            </div>
+        </div>
+
 
     </div>
 
