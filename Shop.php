@@ -63,18 +63,18 @@ $products = json_decode($_SESSION['basket'], true);
       <div class="row">
         <div class="col-4">
           <img src="henrimonster.png" width="100%" />
-          <p class="prodname">Henri: 20$</p>
+          <p class="prodname">Henri: 20 CHF</p>
           <button class="buybutton" onclick="addBasket('3')" style="font-size: 30px;">Add to cart
           </button>
         </div>
         <div class="col-4">
           <img src="valentinmonster.png" width="100%">
-          <p class="prodname">Valentin: 20$</p>
+          <p class="prodname">Valentin: 20 CHF</p>
           <button class="buybutton1" onclick="addBasket('2')" style="font-size: 30px;">Add to cart</button>
       </div>
       <div class=" col-4">
             <img src="Dominicmonster.png" width="100%" />
-            <p class="prodname">Dominic: 20$</p>
+            <p class="prodname">Dominic: 20 CHF</p>
             <button class="buybutton2 " onclick="addBasket('4')" style="font-size: 30px; ">
               Add to cart
             </button>
