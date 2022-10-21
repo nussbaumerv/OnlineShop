@@ -66,7 +66,7 @@ function send_mail($to, $subject, $message)
         <tr>
     <td align="center" style="background-color:rgb(240, 58, 115); padding:30px;">
     <a href="https://shop.valentin-nussbaumer.com/"><img src="https://shop.valentin-nussbaumer.com/img/1.png" alt="" width="90" style="height:auto;display:block;" /></a>
-   <br> VHD Shop | <a style="color:black" href="https://shop.valentin-nussbaumer.com/">shop.valentin-nussbaumer.com/</a> | <a style="color:black" href="mailto: mail@shop.valentin-nussbaumer.com/">mail@shop.valentin-nussbaumer.com</a>
+   <br> VHD Shop | <a style="color:black" href="https://shop.valentin-nussbaumer.com/">shop.valentin-nussbaumer.com/</a> | <a style="color:black" href="mailto: mail@shop.valentin-nussbaumer.com">mail@shop.valentin-nussbaumer.com</a>
   </td>
         </tr>
     </table>

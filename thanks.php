@@ -32,7 +32,7 @@ if ($Validator == $row['validator']) {
     $subject = 'Order confirmation';
     $message = 'Hi, <br>
                     Thank you for your order. <br>
-                    Your order of ' . $row['price'] . 'CHF will be sent to your adress in the next few days.
+                    Your order of ' . $row['price'] . ' CHF will be sent to your adress in the next few days.
                     <a style="color:white;" href="https://shop.valentin-nussbaumer.com/pdf.php?uid=' . $user_id_url . '">Here</a> you can download your bill as a PDF<br>
                     ';
     $to = $row['email'];

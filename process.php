@@ -131,14 +131,14 @@ if (!$result) {
             $message = '
                             Hi, <br>
                             Thank you for your order. <br>
-                            Your order of ' . $totalPrice . 'CHF will be sent to your adress in the next few days.
+                            Your order of ' . $totalPrice . ' CHF will be sent to your adress in the next few days.
                             <a style="color:white;" href="https://shop.valentin-nussbaumer.com/pdf.php?uid=' . $user_id_url . '">Here</a> you can download your bill as a PDF<br>
-                            Please Pay your order in the next 30. Days and sent the Moneyto the Bankaccount below.
+                            Please Pay your order in the next 30. Days and sent the Money to the Bankaccount below.
                         
                             <br><br><br>
                             Betrag: ' . $totalPrice . ' <br>
-                            IBAN-Nr: <br>
-                            Konto-Nr: <br>
+                            IBAN-Nr: 111111111<br>
+                            Konto-Nr: 111111111<br>
                             Zahlungsmitteilung: The Best Monster in Town<br>
                             Konto lautet auf: The Monster Company<br><br>
                             ';
