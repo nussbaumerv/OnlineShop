@@ -26,7 +26,7 @@ require 'vendor/autoload.php';
 
 header('Content-Type: application/json');
 
-$YOUR_DOMAIN = 'http://localhost/OnlineShop/';
+$YOUR_DOMAIN = 'http://shop.valentin-nussbaumer.com';
 
 $checkout_session = \Stripe\Checkout\Session::create([
   'customer_email' => $_POST['email'],

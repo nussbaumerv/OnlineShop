@@ -6,7 +6,7 @@
     <title>lädt...</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/83828188?v=4" type="img/vnd.microsoft.icon" />
+    <link rel="shortcut icon" href="https://shop.valentin-nussbaumer.com/img/1.png" type="img/vnd.microsoft.icon" />
     <style>
         .loader {
             border: 16px solid #f3f3f3;
@@ -143,7 +143,7 @@ if (!$result) {
                             Konto lautet auf: The Monster Company<br><br>
                             ';
             $to = $Email;
-            //send_mail($to, $subject, $message);
+            send_mail($to, $subject, $message);
 
             $sql_update = "UPDATE customers SET payment_method = 'Bill email' WHERE id = '$user_id'";
             $result_update = mysqli_query($connect, $sql_update);

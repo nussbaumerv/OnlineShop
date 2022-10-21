@@ -33,10 +33,10 @@ if ($Validator == $row['validator']) {
     $message = 'Hi, <br>
                     Thank you for your order. <br>
                     Your order of ' . $row['price'] . 'CHF will be sent to your adress in the next few days.
-                    <a style="color:white;" href="https://localhost/OnlineShop/pdf.php?uid=' . $user_id_url . '">Here</a> you can download your bill as a PDF<br>
+                    <a style="color:white;" href="https://shop.valentin-nussbaumer.com/pdf.php?uid=' . $user_id_url . '">Here</a> you can download your bill as a PDF<br>
                     ';
     $to = $row['email'];
-    //send_mail($to, $subject, $message);
+    send_mail($to, $subject, $message);
 
     $sql_update = "UPDATE customers SET paid = 'Yes' WHERE id = '$id'";
     $result_update = mysqli_query($connect, $sql_update);
@@ -54,7 +54,7 @@ if ($Validator == $row['validator']) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="img/1.png" type="img/vnd.microsoft.icon" />
+    <link rel="shortcut icon" href="https://shop.valentin-nussbaumer.com/img/1.png" type="img/vnd.microsoft.icon" />
     <title>Danke</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">

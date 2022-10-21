@@ -93,8 +93,8 @@ $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'colo
 // Set some content to print
 $header = '
 <b style="font-size: 22px;">VHD Shop</b>
-<a style="color:gray; font-size: 13px;" href="mailto: vali7799@icloud.com">contact@VHD.shop</a>
-<a style="color:gray; font-size: 13px;" href="https://VHD.shop">VHD.shop</a>';
+<a style="color:gray; font-size: 13px;" href="mailto: mail@shop.valentin-nussbaumer.com">mail@shop.valentin-nussbaumer.com</a>
+<a style="color:gray; font-size: 13px;" href="https://shop.valentin-nussbaumer.com/">shop.valentin-nussbaumer.com/</a>';
 
 
 
