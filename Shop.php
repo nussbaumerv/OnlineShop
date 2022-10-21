@@ -71,22 +71,27 @@ $products = json_decode($_SESSION['basket'], true);
           <img src="valentinmonster.png" width="100%">
           <p class="prodname">Valentin: 20 CHF</p>
           <button class="buybutton1" onclick="addBasket('2')" style="font-size: 30px;">Add to cart</button>
-      </div>
-      <div class=" col-4">
-            <img src="Dominicmonster.png" width="100%" />
-            <p class="prodname">Dominic: 20 CHF</p>
-            <button class="buybutton2 " onclick="addBasket('4')" style="font-size: 30px; ">
-              Add to cart
-            </button>
+        </div>
+        <div class=" col-4">
+          <img src="Dominicmonster.png" width="100%" />
+          <p class="prodname">Dominic: 20 CHF</p>
+          <button class="buybutton2 " onclick="addBasket('4')" style="font-size: 30px; ">
+            Add to cart
+          </button>
         </div>
       </div>
-      <?php include("basket.php"); ?>
-      <script>
-        function addBasket(id) {
-          window.open("addBasket.php?pid=" + id + "&dest=Shop.php", "_self");
-        }
-      </script>
     </div>
+  </div>
+  <br><br><br><br><br><br>
+  <?php include("footer.php"); ?>
+  <?php include("basket.php"); ?>
+  <script>
+    function addBasket(id) {
+      window.open("addBasket.php?pid=" + id + "&dest=Shop.php", "_self");
+    }
+  </script>
+  </div>
+
 </body>
 
 </html>

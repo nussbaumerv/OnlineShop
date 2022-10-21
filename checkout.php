@@ -109,7 +109,7 @@ $free_places = false;
         }
 
         .productImg {
-            width: 200px!important;
+            width: 200px !important;
         }
 
         .title {
@@ -238,7 +238,7 @@ $free_places = false;
         </div>
 
 
-        <br><br> 
+        <br><br>
 
         <br><br>
         <h2 style="margin-bottom: 100px;margin-top: 100px;;font-size: 95px;color:rgb(200, 58, 115);font-family: Monstarize">Information</h2>
@@ -312,12 +312,14 @@ $free_places = false;
 
         </form>
     </div>
-    <br><br><br><br>
-
+</div>
     <br><br><br>
+    <br><br><br>
+    <br><br><br>
+    <?php include("footer.php"); ?>
     <?php include("basket.php"); ?>
-<<<<<<< HEAD
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-=======
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
->>>>>>> 46ea0800cd0eb43e4ef54b0179293453fa468834
+    <<<<<<< HEAD <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
+        </script>
+        =======
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+        >>>>>>> 46ea0800cd0eb43e4ef54b0179293453fa468834
