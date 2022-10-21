@@ -148,6 +148,10 @@ if (!$result) {
             $sql_update = "UPDATE customers SET payment_method = 'Bill email' WHERE id = '$user_id'";
             $result_update = mysqli_query($connect, $sql_update);
 
+            $products = array();
+            $products = json_encode($products, true);
+            $_SESSION['basket'] = $products;
+
             if ($result_update) {
                 header("Location: thanks.php");
             }

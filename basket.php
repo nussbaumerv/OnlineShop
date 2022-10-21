@@ -165,14 +165,18 @@ close
 ";
                 $totalPrice += $row['price'];
             }
-            echo "<hr><br>Total: " . $totalPrice . " CHF";
+            if($totalPrice != 0){
+            echo "<hr><br>Total: " . $totalPrice . " CHF
+            </div>
+            <div id='bottom_menu'>
+                <span><a class='notA' href='checkout.php' id='checkOut'>Checkout</a></span>
+            </div>";
+            }
+            else{
+                echo "<h2 style='text-align:center;'>Your basket it empty<h2>";
+            }
             ?>
-        </div>
-        <div id="bottom_menu">
 
-            <span><a class="notA" href="checkout.php" id="checkOut">Checkout</a></span>
-
-        </div>
 
 
     </div>
