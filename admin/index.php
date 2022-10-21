@@ -119,32 +119,32 @@ session_start();
 include("connect.php");
 
         if($_SESSION['pwd'] != "Winternachtstraum07"){
-            header("Location: /demo/login.php");
+            header("Location: login.php");
             exit;
         }
-     $sql_kunden = "SELECT * FROM kunden_demo ORDER BY id DESC";
+     $sql_kunden = "SELECT * FROM customers ORDER BY id DESC";
     $kunden_result = mysqli_query($connect, $sql_kunden);
 
     echo "
     <div id='kunden'>
     <br>
     <button onclick='change(2)'>Sitzplätze anzeigen</button>
-    <h1>Kunden</h1>
+    <h1>Costumers</h1>
     <table>
     <tr>
     <th>Name</th>
     <th>Email</th>
-    <th>Adresse</th>
-    <th>Plätze</th>
-    <th>Telefon</th>
-    <th>Zahlungsmethode</th>
-    <th>Preis</th>
-    <th>Bezahlt</th>
+    <th>Adress</th>
+    <th>Products</th>
+    <th>Phone</th>
+    <th>Payment method</th>
+    <th>Price</th>
+    <th>Paid</th>
     <th>ID</th>
     
     </tr>";
     while($row = mysqli_fetch_assoc($kunden_result)){
-        if($row['Payment_method'] == "Karte" && $row['Paid'] == "Nein"){
+        if($row['Payment_method'] == "card" && $row['Paid'] == "No"){
             
         }
         else{
@@ -165,13 +165,13 @@ include("connect.php");
     
 
         echo "<tr ".$style.">
-        <td>".$row['Vorname']. " " .$row['Nachname']."</td>
-        <td>".$row['Email']."</td>
-        <td>".$row['Adresse']. " | " .$row['Postleitzahl']." | " .$row['Ort']."</td>
-        <td>".$row['Plätze']."</td>
-        <td>".$row['Telefon']."</td>
-        <td>".$row['Payment_method']."</td>
-        <td>".$row['Price']."</td>
+        <td>".$row['prename']. " " .$row['name']."</td>
+        <td>".$row['email']."</td>
+        <td>".$row['adress']. " | " .$row['post_code']." | " .$row['village']."</td>
+        <td>".$row['products']."</td>
+        <td>".$row['phone']."</td>
+        <td>".$row['payment_method']."</td>
+        <td>".$row['Price']." CHF</td>
         <td><a ".$a.">".$row['Paid']."</a></td>
         <td>".$row['id']."</td>
         </tr>";
@@ -179,7 +179,7 @@ include("connect.php");
     }
     echo "</table></div>";
 
-    $sql_plätze = "SELECT * FROM plätze_demo WHERE ordeble = '0' ORDER BY aufführung ASC";
+    $sql_plätze = "SELECT * FROM products ORDER BY id ASC";
     $plätze_result = mysqli_query($connect, $sql_plätze);
 
     echo "
@@ -268,7 +268,7 @@ include("connect.php");
     }
     echo "</table>
     </div>     <div id='bottom'>
-    <div id='stats'><value>Umsatz: ".$price." CHF</value> <value>Kinder: ".$kcount."</value><value>Erwachsene: ".$ecount."</value></div>
+    <div id='stats'><value>Umsatz: ".$price." CHF</value> <value>Customers: ".$kcount."</value><value>Products Sold: ".$ecount."</value></div>
     <a id='logout' href='/demo/logout.php'>Logout</a>
     <span id='webmail'>Passwort: Winternachtstraum07! | <a href='https://mail.hostinger.com/?clearSession=true&_user=contact@sommernachtstraum.me&_ga=2.40604644.779347310.1648450316-1762173112.1646149980'>Webmail</a></span>
     </div>";

@@ -3,13 +3,13 @@ session_start();
 $pwd = "Winternachtstraum07";
 
 if($_SESSION['pwd'] == $pwd){
-    header("Location: admin");
+    header("Location: index.php");
 }
 
 if ($_POST['submit']) {
     if ($_POST['password'] == $pwd) {
         $_SESSION['pwd'] = $pwd;
-        header("Location: admin");
+        header("Location: index.php");
     }
     else{
         echo "Falsches Passwort";
@@ -71,7 +71,6 @@ if ($_POST['submit']) {
             margin:auto;
         }
         titel{
-            font-family: 'Playfair Display', serif;
             font-size: 50px;
         }
 
