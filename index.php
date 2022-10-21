@@ -65,7 +65,7 @@ $products = json_decode($_SESSION['basket'], true);
 
       <div class="row">
         <div class="col-12">
-          <a href="Shop.html" class="shoplink">
+          <a href="Shop.php" class="shoplink">
             CLick here to go to Shop
           </a>
         </div>
