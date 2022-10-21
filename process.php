@@ -143,7 +143,7 @@ if (!$result) {
                             Konto lautet auf: The Monster Company<br><br>
                             ';
             $to = $Email;
-            send_mail($to, $subject, $message);
+            //send_mail($to, $subject, $message);
 
             $sql_update = "UPDATE customers SET payment_method = 'Bill email' WHERE id = '$user_id'";
             $result_update = mysqli_query($connect, $sql_update);
