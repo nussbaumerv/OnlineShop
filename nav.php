@@ -19,12 +19,12 @@
                   <a class="nav-link" href="Kontakt.php">Kontakt</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active" href="Shop.php">Shop</a>
+                  <a class="nav-link " href="Shop.php">Shop</a>
                 </li>
               </ul>
               <span onclick="openNav()" class="material-symbols-outlined addBasket" style="margin-left: 455px;">
                 shopping_cart
-              </span>
+              </span>active
 
 
             </div>
