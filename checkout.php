@@ -18,6 +18,7 @@ $free_places = false;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="index.css" />
     <title>Your Basket</title>
     <style>
         body {
@@ -64,10 +65,12 @@ $free_places = false;
 
         titel {
             font-size: 50px;
+            font-family: Monstarize;
         }
 
         suptitel {
             font-size: 25px;
+            font-family: Monstarize;
         }
 
 
@@ -105,7 +108,7 @@ $free_places = false;
         }
 
         .productImg {
-            width: 200px;
+            width: 200px!important;
         }
 
         .title {
@@ -113,10 +116,10 @@ $free_places = false;
             font-size: 100px;
         }
 
-        img {
-            border-radius: 30px;
-            margin-bottom: 20px;
-            margin-right: 20px;
+        .productImg {
+            border-radius: 30px !important;
+            margin-bottom: 20px !important;
+            margin-right: 20px !important;
         }
 
         .productName {
@@ -128,27 +131,87 @@ $free_places = false;
             text-align: center;
             font-size: 40px;
         }
+
+        .inplabels {
+            display: inline-block;
+            margin-bottom: 1px;
+            color: rgb(72, 212, 255);
+            font-size: 30px;
+        }
+
+        @font-face {
+            font-family: Monstarize;
+
+            src: url("Monstarize-qZ09l.ttf");
+        }
+
+        .paymeth {
+            color: rgb(72, 212, 255);
+        }
+
+        #submit {
+            font-family: Monstarize;
+            font-size: 35px;
+            border: none;
+            background-color: rgb(240, 58, 115);
+            width: 300px;
+            height: 50px;
+            border-radius: 30px;
+            color: rgb(72, 212, 255);
+        }
+
+        #submit:hover {
+            background-color: rgb(200, 58, 115);
+        }
     </style>
 </head>
 <br>
 <div class="container" style="font-family: Monstarize;text-align:center;color:rgb(72, 212, 255);">
-    <titel class="title">VHD Shop</titel><br>
-    <suptitel>Your Basket:</suptitel>
-</div>
-<br><br>
+    <div class="row">
+        <div class="col-12 padcol">
+            <nav class="navbar navbar-expand-lg">
+                <img src="VHD-Logo.png" alt="" />
+                <div class="container-fluid">
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse custnav" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="" href="index.php">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="About-us.php">About us</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Kontakt.php">Kontakt</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="Shop.php">Shop</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <br><br><br><br><br><br><br><br>
+        <titel class="title">VHD Shop</titel><br>
+        <suptitel>Your Basket:</suptitel>
+    </div>
+    <br><br>
 
-<table>
-    <?php
-    $totalPrice = 0;
-    foreach ($products as $product) {
-        $sql = "SELECT * FROM products WHERE id = '$product'";
-        $result = mysqli_query($connect, $sql);
-        if (!$result) {
-            echo "<script> alert('Daten konnten nicht geladen Werden.'); </script>";
-        }
+    <table>
+        <?php
+        $totalPrice = 0;
+        foreach ($products as $product) {
+            $sql = "SELECT * FROM products WHERE id = '$product'";
+            $result = mysqli_query($connect, $sql);
+            if (!$result) {
+                echo "<script> alert('Daten konnten nicht geladen Werden.'); </script>";
+            }
 
-        $row = mysqli_fetch_assoc($result);
-        echo "
+            $row = mysqli_fetch_assoc($result);
+            echo "
     <tr>
     <td><img  class='productImg' src='img/" . $row['id'] . ".png'></tb>
     <td><span class='productName'>" . $row['name'] . "</span><br>
@@ -158,135 +221,98 @@ $free_places = false;
     </span></a>
     </td>
     </tr>";
-        $totalPrice += $row['price'];
-    }
+            $totalPrice += $row['price'];
+        }
 
-    ?>
+        ?>
 
-</table>
+    </table>
 
-
-
-
-<style>
-    .inplabels {
-        display: inline-block;
-        margin-bottom: 1px;
-        color: rgb(72, 212, 255);
-        font-size: 30px;
-    }
-
-    @font-face {
-        font-family: Monstarize;
-
-        src: url("Monstarize-qZ09l.ttf");
-    }
-
-    .paymeth {
-        color: rgb(72, 212, 255);
-    }
-
-    #submit {
-        font-family: Monstarize;
-        font-size: 35px;
-        border: none;
-        background-color: rgb(240, 58, 115);
-        width: 300px;
-        height: 50px;
-        border-radius: 30px;
-        color: rgb(72, 212, 255);
-    }
-    #submit:hover{
-        background-color: rgb(200, 58, 115);
-    }
+    <div class="container">
+        <hr>
+        <div class="comprice">
+            <a style="font-size: 30px;font-family: Ubuntu;">Your total:</a>
+            <?php echo $totalPrice; ?>
+            <a style="font-size: 30px;font-family: Ubuntu;">CHF</a>
+        </div>
 
 
-</style>
+        <br><br> <br>
 
-<div class="container">
-    <hr>
-    <div class="comprice">
-        <a style="font-size: 30px;font-family: Ubuntu;">Your total:</a>
-        <?php echo $totalPrice; ?>
-        <a style="font-size: 30px;font-family: Ubuntu;">CHF</a>
+        <br><br>
+        <h2 style="margin-bottom: 100px;margin-top: 100px;;font-size: 95px;color:rgb(200, 58, 115);font-family: Monstarize">Information</h2>
+        <div class="informationen">
+            <form action="process.php" method="post">
+                <div class="row">
+                    <div class="col-12">
+                        <label for="vorname" class="inplabels" style="font-weight: bold;">Vorname</label>
+                        <input name="vorname" type="text" required><b>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <label for="name" class="inplabels">Name</label>
+                        <input name="name" type="text" required><br><br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <label for="adresse" class="inplabels">Adresse</label>
+                        <input name="adresse" type="text" required><br>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <label for="postleihzahl" class="inplabels">Postleihzahl</label>
+                        <input name="postleitzahl" type="text" required><br>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <label for="ort" class="inplabels">Ort</label>
+                        <input name="ort" type="text" remove required><br><br>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12">
+                        <label for="email" class="inplabels">Email</label>
+                        <input name="email" type="email" required><br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <label for="telefon" class="inplabels">Telefon</label>
+                        <input name="telefon" type="tel" required><br>
+                    </div>
+                </div>
+
+
+        </div>
+
+
+
+        <h2 class="paymeth">Payment methods</h2>
+        <div id="zahlungsmethoden">
+            <label class="container">
+                <input type="radio" name="payment_method" style="margin-top: 20px;" value="card" checked>
+                <div class="label">Credit card</div>
+            </label><br>
+
+            <label class="container" id="bill_email">
+                <input type="radio" style="margin-top: 20px;" name="payment_method" value="bill_email">
+                <div id="email" class="label">Invoice by email</div>
+        </div><br>
+        <br>
+
+        <input type="submit" id="submit">
+
+        </form>
     </div>
+    <br><br><br><br>
 
-
-    <br><br> <br>
-
-    <br><br>
-    <h2 style="margin-bottom: 100px;margin-top: 100px;;font-size: 95px;color:rgb(200, 58, 115);font-family: Monstarize">Information</h2>
-    <div class="informationen">
-        <form action="process.php" method="post">
-            <div class="row">
-                <div class="col-12">
-                    <label for="vorname" class="inplabels" style="font-weight: bold;">Vorname </label>
-                    <input name="vorname" type="text" required><b>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <label for="name" class="inplabels">Name</label>
-                    <input name="name" type="text" required><br><br>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <label for="adresse" class="inplabels">Adresse</label>
-                    <input name="adresse" type="text" required><br>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12">
-                    <label for="postleihzahl" class="inplabels">Postleihzahl</label>
-                    <input name="postleitzahl" type="text" required><br>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12">
-                    <label for="ort" class="inplabels">Ort</label>
-                    <input name="ort" type="text" remove required><br><br>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12">
-                    <label for="email" class="inplabels">Email</label>
-                    <input name="email" type="email" required><br>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12">
-                    <label for="telefon" class="inplabels">Telefon</label>
-                    <input name="telefon" type="tel" required><br>
-                </div>
-            </div>
-
-
-    </div>
-
-
-
-    <h2 class="paymeth">Payment methods</h2>
-    <div id="zahlungsmethoden">
-        <label class="container">
-            <input type="radio" name="payment_method" style="margin-top: 20px;" value="card" checked>
-            <div class="label">Credit card</div>
-        </label><br>
-
-        <label class="container" id="bill_email">
-            <input type="radio" style="margin-top: 20px;" name="payment_method" value="bill_email">
-            <div id="email" class="label">Invoice by email</div>
-    </div><br>
-    <br>
-
-    <input type="submit" id="submit">
-
-    </form>
-</div>
-<br><br><br><br>
-
-<br><br><br>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <br><br><br>
+    <?php include("basket.php"); ?>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
