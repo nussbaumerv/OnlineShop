@@ -21,6 +21,7 @@
             text-align: right;
             z-index: 3000;
             box-shadow: 0 .7px 2px 2px rgba(0, 0, 0, 0.092);
+            visibility: hidden;
         }
 
         .sidenav .isA {
@@ -66,7 +67,7 @@
             margin-top: 1px;
             width: 70px;
             float: left;
-
+            border-radius: 30px;
         }
 
         .containerProducts {
@@ -185,12 +186,14 @@ close
 
         function openNav() {
             document.getElementById("mySidenav").style.width = "400px";
-            document.getElementById("main").style.marginLeft = "400px";
+            document.getElementById("mySidenav").style.visibility='visible';
+   
         }
 
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0px";
-            document.getElementById("main").style.marginLeft = "0";
+            document.getElementById("mySidenav").style.visibility='hidden';
+  
         }
     </script>
 
