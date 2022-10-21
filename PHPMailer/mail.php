@@ -11,15 +11,16 @@ function send_mail($to, $subject, $message)
 {
   $mail = new PHPMailer(true);
 
-  $mail->IsSMTP();
-  $mail->Host       = "smtp.mail.me.com"; 
-  $mail->SMTPAuth   = true;        
-  $mail->SMTPSecure = "tls";             
-  $mail->Host       = "smtp.mail.me.com";     
-  $mail->Username   = 'vali7799@icloud.com';
-  $mail->Password   = 'ncsg-rzop-ardx-nhut';
-  $mail->Port       = 587;
-  $mail->setFrom('vali7799@icloud.com', 'VHD Shop');
+  $mail->isSMTP();
+  $mail->Host       = 'smtp.hostinger.com';
+  $mail->SMTPAuth   = true;
+  $mail->CharSet    = 'UTF-8';
+  $mail->Username   = 'mail@shop.valentin-nussbaumer.com';
+  $mail->Password   = 'SirO7799!';
+  $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+  $mail->Port       = 465;
+
+  $mail->setFrom('mail@shop.valentin-nussbaumer.com', 'VHD Shop');
   $mail->addAddress($to);
 
   $mail->isHTML(true);

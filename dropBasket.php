@@ -13,6 +13,6 @@ if($id != 0){
         header("Location: ".$destination."");
     }
     else{
-        header("Location: shop.php");
+        header("Location: Shop.php");
     }
 }
