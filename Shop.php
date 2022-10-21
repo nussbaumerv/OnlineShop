@@ -83,7 +83,7 @@ $products = json_decode($_SESSION['basket'], true);
       <?php include("basket.php"); ?>
       <script>
         function addBasket(id) {
-          window.open("addBasket.php?pid=" + id + "&dest=Shop.php");
+          window.open("addBasket.php?pid=" + id + "&dest=Shop.php", "_self");
         }
       </script>
     </div>
