@@ -61,6 +61,7 @@ $free_places = false;
             outline: none;
             border-radius: 0.25rem;
             transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+            text-align: center;
         }
 
         titel {
@@ -215,7 +216,7 @@ $free_places = false;
     <tr>
     <td><img  class='productImg' src='img/" . $row['id'] . ".png'></tb>
     <td><span class='productName'>" . $row['name'] . "</span><br>
-    <span class='productPrice'>" . $row['price'] . " CHF</span>
+    <span class='productPrice'>" . $row['price'] . " CHF</span><br>
     <a href='dropBasket.php?pid=" . $row['id'] . "&dest=checkout.php'><span class='material-symbols-outlined' style='color: red;'>
      close
     </span></a>
@@ -237,7 +238,7 @@ $free_places = false;
         </div>
 
 
-        <br><br> <br>
+        <br><br> 
 
         <br><br>
         <h2 style="margin-bottom: 100px;margin-top: 100px;;font-size: 95px;color:rgb(200, 58, 115);font-family: Monstarize">Information</h2>
@@ -245,33 +246,33 @@ $free_places = false;
             <form action="process.php" method="post">
                 <div class="row">
                     <div class="col-12">
-                        <label for="vorname" class="inplabels" style="font-weight: bold;">Vorname</label>
+                        <label for="vorname" class="inplabels" style="font-weight: bold;">First name</label>
                         <input name="vorname" type="text" required><b>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <label for="name" class="inplabels">Name</label>
+                        <label for="name" class="inplabels">Surname</label>
                         <input name="name" type="text" required><br><br>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <label for="adresse" class="inplabels">Adresse</label>
+                        <label for="adresse" class="inplabels">Address</label>
                         <input name="adresse" type="text" required><br>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-12">
-                        <label for="postleihzahl" class="inplabels">Postleihzahl</label>
-                        <input name="postleitzahl" type="text" required><br>
+                        <label for="postleitzahl" class="inplabels">Postal code</label>
+                        <input name="postleitzahl" type="number" required><br>
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="col-12">
-                        <label for="ort" class="inplabels">Ort</label>
+                        <label for="ort" class="inplabels">City</label>
                         <input name="ort" type="text" remove required><br><br>
                     </div>
                 </div>
@@ -284,7 +285,7 @@ $free_places = false;
                 </div>
                 <div class="row">
                     <div class="col-12">
-                        <label for="telefon" class="inplabels">Telefon</label>
+                        <label for="telefon" class="inplabels">Phone</label>
                         <input name="telefon" type="tel" required><br>
                     </div>
                 </div>
