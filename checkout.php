@@ -299,12 +299,12 @@ $free_places = false;
         <div id="zahlungsmethoden">
             <label class="container">
                 <input type="radio" name="payment_method" style="margin-top: 20px;" value="card" checked>
-                <div class="label">Credit card</div>
+                <label class="label">Credit card</label>
             </label><br>
 
             <label class="container" id="bill_email">
                 <input type="radio" style="margin-top: 20px;" name="payment_method" value="bill_email">
-                <div id="email" class="label">Invoice by email</div>
+                <label id="email" class="label">Invoice by email</label>
         </div><br>
         <br>
 
