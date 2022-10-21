@@ -17,6 +17,7 @@ $free_places = false;
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Your Basket</title>
     <style>
         body {
@@ -152,7 +153,9 @@ $free_places = false;
     <td><img  class='productImg' src='img/" . $row['id'] . ".png'></tb>
     <td><span class='productName'>" . $row['name'] . "</span><br>
     <span class='productPrice'>" . $row['price'] . " CHF</span>
-    <a href='dropBasket.php?pid=" . $row['id'] . "&dest=checkout.php'>Remove from Basket</a>
+    <a href='dropBasket.php?pid=" . $row['id'] . "&dest=checkout.php'><span class='material-symbols-outlined' style='color: red;'>
+     close
+    </span></a>
     </td>
     </tr>";
         $totalPrice += $row['price'];
