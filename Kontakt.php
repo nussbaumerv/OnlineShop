@@ -96,11 +96,12 @@ $products = json_decode($_SESSION['basket'], true);
 
         </div>
       </div>
-
-
     </div>
+  </div>
 
-    <?php include("basket.php") ?>
+  <br><br><br>
+  <?php include("footer.php"); ?>
+  <?php include("basket.php") ?>
 </body>
 
 </html>
