@@ -220,7 +220,7 @@ $free_places = false;
         <form action="process.php" method="post">
             <div class="row">
                 <div class="col-12">
-                    <label for="vorname" class="inplabels">Vorname</label>
+                    <label for="vorname" class="inplabels" style="font-weight: bold;">Vorname </label>
                     <input name="vorname" type="text" required><b>
                 </div>
             </div>
@@ -278,7 +278,7 @@ $free_places = false;
 
         <label class="container" id="bill_email">
             <input type="radio" style="margin-top: 20px;" name="payment_method" value="bill_email">
-            <div id="email" class="label">Bill per email</div>
+            <div id="email" class="label">Invoice by email</div>
     </div><br>
     <br>
 
