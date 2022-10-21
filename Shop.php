@@ -21,7 +21,7 @@ $products = json_decode($_SESSION['basket'], true);
 <body>
 
   <div class="container">
-  <div class="row">
+    <div class="row">
       <div class="col-12 padcol">
         <nav class="navbar navbar-expand-lg">
           <img src="VHD-Logo.png" alt="" />
@@ -53,37 +53,39 @@ $products = json_decode($_SESSION['basket'], true);
           </div>
         </nav>
       </div>
-    <div class="row" style="margin-top: 300px;">
-      <div class="col-12">
-        <p class="headtitleshop">Shop</p>
+      <div class="row" style="margin-top: 300px;">
+        <div class="col-12">
+          <p class="headtitleshop">Shop</p>
+        </div>
       </div>
-    </div>
 
-    <div class="row">
-      <div class="col-4">
-        <img src="henrimonster.png" width="100%" />
-        <p class="prodname">Henri: 20$</p>
-        <button class="buybutton">
-          <a class="isA" href="addBasket.php?pid=3&dest=Shop.php">Add to cart</a>
-        </button>
+      <div class="row">
+        <div class="col-4">
+          <img src="henrimonster.png" width="100%" />
+          <p class="prodname">Henri: 20$</p>
+          <button class="buybutton" onclick="addBasket('3')" style="font-size: 30px;">Add to cart
+          </button>
+        </div>
+        <div class="col-4">
+          <img src="valentinmonster.png" width="100%">
+          <p class="prodname">Valentin: 20$</p>
+          <button class="buybutton1" onclick="addBasket('2')" style="font-size: 30px;">Add to cart</button>
       </div>
-      <div class="col-4">
-        <img src="valentinmonster.png" width="100%">
-        <p class="prodname">Valentin: 20$</p>
-        <button class="buybutton1">
-          <a class="isA" href="addBasket.php?pid=2&dest=Shop.php">Add to cart</a>
-        </button>
+      <div class=" col-4">
+            <img src="Dominicmonster.png" width="100%" />
+            <p class="prodname">Dominic: 20$</p>
+            <button class="buybutton2 " onclick="addBasket('4')" style="font-size: 30px; ">
+              Add to cart
+            </button>
+        </div>
       </div>
-      <div class="col-4">
-        <img src="Dominicmonster.png" width="100%" />
-        <p class="prodname">Dominic: 20$</p>
-        <button class="buybutton2">
-          <a class="isA" href="addBasket.php?pid=4&dest=Shop.php">Add to cart</a>
-        </button>
-      </div>
+      <?php include("basket.php"); ?>
+      <script>
+        function addBasket(id) {
+          window.open("addBasket.php?pid=" + id + "&dest=Shop.php");
+        }
+      </script>
     </div>
-    <?php include("basket.php"); ?>
-  </div>
 </body>
 
 </html>
