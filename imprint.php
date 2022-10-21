@@ -13,6 +13,19 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="shortcut icon" href="https://shop.valentin-nussbaumer.com/img/1.png" type="img/vnd.microsoft.icon" />
     <title>Imprint</title>
+    <style>
+    @font-face {
+        font-family: Monstarize;
+        src: url("Monstarize-qZ09l.ttf");
+    }
+
+    .title {
+        color: rgb(240, 58, 115);
+        font-size: 80px;
+        font-family: Monstarize;
+        margin-top: 300px;
+    }
+</style>
 </head>
 
 <body>
@@ -139,29 +152,7 @@
     </div>
 
 
+    <?php include("basket.php"); ?>
 
 </body>
-<style>
-    @font-face {
-        font-family: Monstarize;
-        src: url("Monstarize-qZ09l.ttf");
-    }
-
-    .title {
-        color: rgb(240, 58, 115);
-        font-size: 80px;
-        font-family: Monstarize;
-        margin-top: 300px;
-    }
-</style>
-
 </html>
-
-<?php
-
-
-
-
-
-
-?>
