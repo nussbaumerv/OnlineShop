@@ -1,0 +1,96 @@
+body {
+    margin: 0px;
+
+    overflow: hidden;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+	animation: gradient 40s ease infinite;
+	height: 100vh;
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+@font-face {
+    font-family: Monstarize;
+    src: url("Monstarize-qZ09l.ttf");
+  }
+titel {
+    font-size: 75px;
+}
+
+.container {
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    width: 60%;
+    height: 700px;
+    margin: auto;
+    margin-top: 11%;
+    margin-left: 20%;
+    display: block;
+    padding: 20px;
+    text-align: center;
+    background-color: white;
+    position: absolute;
+    border-radius: 20px;
+
+}
+
+#text {
+    padding-top: 250px;
+    font-size: 35px;
+    color: rgb(72, 212, 255);
+    font-family: "Monstarize";
+    text-align: center;
+}
+
+a {
+    font-family: "Ubuntu", sans-serif;
+    margin-top: 40px;
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  height: 70px;
+  width: 400px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+  margin-top:50px;
+
+}
+a:focus{
+    font-family: "Ubuntu", sans-serif;
+  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+a:hover {
+    font-family: "Ubuntu", sans-serif;
+    color: #fff;
+    box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+    transform: translateY(-5px);
+}

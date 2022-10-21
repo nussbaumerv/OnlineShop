@@ -1,4 +1,5 @@
 <?php
+/*
 include("connect.php");
 include("PHPMailer/mail.php");
 session_start();
@@ -39,6 +40,7 @@ if ($Validator == $row['validator']) {
     $sql_update = "UPDATE customers SET paid = 'Yes' WHERE id = '$id'";
     $result_update = mysqli_query($connect, $sql_update);
 }
+*/
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,44 +55,14 @@ if ($Validator == $row['validator']) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
-
-    <style>
-        body {
-            margin: 0px;
-            text-align: center;
-        }
-
-        titel {
-            font-size: 50px;
-        }
-
-        #container {
-            min-height: 100vh;
-            display: flex;
-
-        }
-
-        #text {
-            margin: auto;
-        }
-
-        a {
-            text-decoration: none;
-            color: grey;
-            font-size: 20px;
-        }
-
-        a:hover {
-            color: black;
-        }
-    </style>
+    <link href="thanks.css" rel="stylesheet">
 </head>
 
 <body>
-    <div id="container">
+    <div class="container">
         <div id="text">
             <titel>Thanks for your Order</titel><br>
-            <a href="pdf.php?uid=<?php echo $user_id_url; ?>">Download your bill</a>
+            <a href="pdf.php?uid=<?php/* echo $user_id_url;  */?>">Download your bill</a>
         </div>
     </div>
 
