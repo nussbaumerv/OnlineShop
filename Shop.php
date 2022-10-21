@@ -15,6 +15,7 @@ $products = json_decode($_SESSION['basket'], true);
   <link rel="stylesheet" href="index.css" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
 <body>
@@ -98,9 +99,12 @@ $products = json_decode($_SESSION['basket'], true);
           $row = mysqli_fetch_assoc($result);
           echo "<div class='containerProducts'>
     <img  class='productImg' src='img/" . $row['id'] . ".png'>
-    <span class='name'>" . $row['name'] . "</span><br>
+    <span class='name'>" . $row['name'] . "</span> <span onclick='dropItem(".$row['id'].");' class='material-symbols-outlined dropItemMenu' style='color: red; cursor:pointer;'>
+    close
+    </span> <br>
     <span class='price'>" . $row['price'] . " CHF</span><br>
-    <div><br>";
+    <div><br> 
+    ";
           $totalPrice += $row['price'];
         }
         echo "<hr><br>Total: " . $totalPrice . " CHF";
@@ -118,6 +122,9 @@ $products = json_decode($_SESSION['basket'], true);
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
   <script>
+    function dropItem(id){
+      window.open("dropBasket.php?pid=" + id + "&dest=shop.php");
+    }
     function openNav() {
       document.getElementById("mySidenav").style.width = "400px";
       document.getElementById("main").style.marginLeft = "400px";
